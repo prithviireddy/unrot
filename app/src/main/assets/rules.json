@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "version": 1,
+  "_note": "Starter rules, NOT yet verified on a device. Tune with Inspector dumps, bump 'version', publish this file.",
+  "apps": {
+    "com.instagram.android": [
+      {
+        "minVersionCode": 0,
+        "maxVersionCode": null,
+        "targets": [
+          {
+            "id": "ig_reels_tab_cover",
+            "kind": "cover",
+            "feature": "reels",
+            "coverLight": "#FFFFFF",
+            "coverDark": "#000000",
+            "any": [
+              {
+                "viewId": "clips_tab"
+              },
+              {
+                "desc": "Reels",
+                "className": "FrameLayout",
+                "maxTopFrac": 1.0
+              }
+            ]
+          },
+          {
+            "id": "ig_reels_tab",
+            "kind": "block",
+            "feature": "reels",
+            "any": [
+              {
+                "viewId": "clips_tab",
+                "selected": true
+              },
+              {
+                "desc": "Reels",
+                "selected": true,
+                "className": "FrameLayout"
+              }
+            ]
+          },
+          {
+            "id": "ig_reels_viewer",
+            "kind": "block",
+            "feature": "reels",
+            "dmEligible": true,
+            "swipeViewIds": [
+              "com.instagram.android:id/clips_viewer_view_pager"
+            ],
+            "any": [
+              {
+                "viewId": "clips_viewer_view_pager",
+                "minHeightFrac": 0.5
+              },
+              {
+                "viewIdRegex": "clips_viewer.*(pager|container)",
+                "minHeightFrac": 0.5
+              }
+            ]
+          },
+          {
+            "id": "ig_dm_thread",
+            "kind": "marker",
+            "feature": "dm",
+            "any": [
+              {
+                "viewId": "row_thread_composer_edittext"
+              },
+              {
+                "viewIdRegex": "direct_thread|thread_composer"
+              },
+              {
+                "viewId": "message_list"
+              }
+            ]
+          },
+          {
+            "id": "ig_caught_up",
+            "kind": "block",
+            "feature": "caughtup",
+            "action": "tap",
+            "tapViewId": "com.instagram.android:id/feed_tab",
+            "any": [
+              {
+                "textContains": "all caught up",
+                "maxTopFrac": 0.4
+              },
+              {
+                "text": "Suggested posts",
+                "maxTopFrac": 0.4
+              },
+              {
+                "descContains": "all caught up",
+                "maxTopFrac": 0.4
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "com.google.android.youtube": [
+      {
+        "minVersionCode": 0,
+        "maxVersionCode": null,
+        "targets": [
+          {
+            "id": "yt_shorts_tab_cover",
+            "kind": "cover",
+            "feature": "shorts",
+            "coverLight": "#FFFFFF",
+            "coverDark": "#0F0F0F",
+            "any": [
+              {
+                "desc": "Shorts"
+              },
+              {
+                "text": "Shorts",
+                "className": "TextView"
+              }
+            ]
+          },
+          {
+            "id": "yt_shorts_player",
+            "kind": "block",
+            "feature": "shorts",
+            "any": [
+              {
+                "viewId": "reel_recycler",
+                "minHeightFrac": 0.5
+              },
+              {
+                "viewId": "reel_player_page_container"
+              },
+              {
+                "viewId": "reel_watch_player"
+              },
+              {
+                "viewIdRegex": "reel_(watch|player)"
+              }
+            ]
+          },
+          {
+            "id": "yt_shorts_tab",
+            "kind": "block",
+            "feature": "shorts",
+            "any": [
+              {
+                "desc": "Shorts",
+                "selected": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
