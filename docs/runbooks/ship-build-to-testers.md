@@ -14,6 +14,10 @@
 ```
 The output is `app/build/outputs/apk/debug/app-debug.apk`. Rename it when sharing, for example `unrot-0.1.1.apk`.
 
+**Tester builds are made without `-PkeepAliveFgs`.** The foreground notification (decision [0011](../decisions/0011-keep-alive-notification.md)) stays off in them. Build it with `-PkeepAliveFgs` only for the owner's own phone test.
+
+**Before the release flag is turned on** (`KEEP_ALIVE_FGS` for release builds, a separate change): the Play Console's special-use foreground-service declaration must be filled in, with the subtype text from `app/src/keepAliveFgs/AndroidManifest.xml` and a demo video of the notification and blocking running. Without it, Play rejects the build.
+
 **Signing:** debug builds are signed with `C:\Users\pruth\.android\debug.keystore`. Testers can only update in place if every build is signed with the **same** key, so back that file up somewhere safe. If it's lost, testers have to uninstall (losing their settings and counts) and reinstall.
 
 ## Install
@@ -28,6 +32,7 @@ The output is `app/build/outputs/apk/debug/app-debug.apk`. Rename it when sharin
 2. **Android 13+:** when the Accessibility switch is greyed out, go to App info › ⋮ › **Allow restricted settings**, then turn on Unrot in Accessibility › Installed apps. Onboarding links to both.
 3. Battery: set Unrot to unrestricted. **Xiaomi:** also turn on Autostart. **Samsung:** add it to "Never sleeping apps". **Oppo, Realme, OnePlus:** allow auto launch.
 4. Allow notifications, so they hear about it if Android stops the service.
+5. **Oppo, Realme, OnePlus:** the guide (Settings › Apps › Auto launch, and App battery management › Allow background activity) is shown on Home after a kill. Check it on their phone.
 
 ## Check
 - The status card says "Blocking is on". The bottom bar is redrawn without the Instagram Reels tab and the YouTube Shorts tab (on Android 8–10, or with Simple patch, the tab is patched instead).
@@ -36,4 +41,4 @@ The output is `app/build/outputs/apk/debug/app-debug.apk`. Rename it when sharin
 ## Recover
 - **"App not installed" on update:** different signing key, or a lower `versionCode`. Uninstall, then reinstall.
 - **Accessibility switch still greyed out:** restricted settings weren't allowed. Some Xiaomi phones need it allowed again after an update.
-- **Blocking stops after a while:** the battery settings weren't applied. Re-check step 3 of the first-run steps for that phone brand.
+- **Blocking stops after a while:** the battery settings weren't applied. Re-check step 3 of the first-run steps for that phone brand. The Home card "Unrot was stopped" and "Switched on, but your phone stopped it" say the same; "Fix it" opens the guide.

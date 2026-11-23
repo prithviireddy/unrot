@@ -115,7 +115,7 @@ The benefit of a foreground service against Oplus' one-tap clean is unproven. It
 ## Round-2 notes (folded in; these win over the text above)
 - **N1: the gate is an explicit opt-in, not "debug only".** Tester builds are debug APKs, so "debug only" would still reach testers.
   - **Code gate:** `BuildConfig.KEEP_ALIVE_FGS = project.hasProperty("keepAliveFgs")`. It's off by default in every build type and on only when built with `-PkeepAliveFgs`, for the owner's test.
-  - **Manifest entries** (the two permissions, `foregroundServiceType` and `<property>`): live in `app/src/debug/AndroidManifest.xml`, merged onto `.service.BlockerService` with `tools:node="merge"`, so release builds carry no foreground-service permission.
+  - **Manifest entries** (the two permissions, `foregroundServiceType` and `<property>`): live in `app/src/keepAliveFgs/AndroidManifest.xml`, which app/build.gradle.kts adds to the debug build only with `-PkeepAliveFgs`, merged onto `.service.BlockerService` with `tools:node="merge"`, so release builds carry no foreground-service permission.
   - **Runbook `ship-build-to-testers`:** tester builds are made without `-PkeepAliveFgs`.
 - **N2: `blockingOn`.** Written on the first Settings emission and on every `fgsTransition`, not at connect with default settings. Blocking counts as on when Instagram or YouTube blocking is on and the user has finished onboarding; caught-up alone doesn't count.
 - **N3: `KillCheck` spec.**

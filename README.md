@@ -17,7 +17,9 @@ BlockerService (AccessibilityService, only Instagram + YouTube)
   Action       Back · tap a view (Home tab for "all caught up") · patch over a tab that can't be redrawn
   Bar          redraws the bottom bar without the Reels/Shorts tab (bar/BarController, service/BarCapture, BarOverlay)
 App (Compose)  onboarding, toggles with a 30 s friction delay, blocked-today counter, hidden developer mode
-RulesWorker    every 12 h: download rules (if RULES_URL is set) + notify if the service was killed
+RulesWorker    every 12 h: download rules (if RULES_URL is set) + the watchdog notice if blocking is on but the service is off or not running
+Kill check     on connect, the previous run's record (service_state) and exit reasons decide whether a kill
+               happened (Home card, notice). A foreground notification while blocking is on, only in `-PkeepAliveFgs` builds (decision 0011)
 ```
 **The bar redraw.** On Android 11 and later, Unrot draws its own copy of Instagram's and YouTube's bottom bar with the
 Reels or Shorts tab left out, and the remaining tabs spaced evenly. Each tab's picture is cropped from an accessibility

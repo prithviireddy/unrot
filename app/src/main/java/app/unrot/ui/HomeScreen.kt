@@ -39,6 +39,8 @@ import app.unrot.data.Settings
 import app.unrot.inspector.Inspector
 import app.unrot.rules.RulesRepository
 import app.unrot.service.BarStore
+import app.unrot.service.ServiceState
+import android.os.Build
 import app.unrot.work.RulesWorker
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -51,6 +53,7 @@ fun HomeScreen(s: Settings, status: SystemStatus) {
     val ctx = LocalContext.current
     val scope = rememberCoroutineScope()
     var pending by remember { mutableStateOf<Pending?>(null) }
+    var guideOpen by remember { mutableStateOf(false) }
 
     /** Strengthening applies at once; weakening waits [Settings.frictionSeconds]. */
     fun change(label: String, weakens: Boolean, apply: suspend () -> Unit) {
@@ -64,7 +67,8 @@ fun HomeScreen(s: Settings, status: SystemStatus) {
         ) {
             Text("Unrot", style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Bold)
             if (s.onboarded && s.disclosureVersion < DISCLOSURE_VERSION) DisclosureCard()
-            StatusCard(status)
+            status.kill?.let { KillCard(it, onFix = { guideOpen = true }) }
+            StatusCard(status, onFix = { guideOpen = true })
 
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(20.dp)) {
@@ -107,6 +111,52 @@ fun HomeScreen(s: Settings, status: SystemStatus) {
 
     pending?.let { p ->
         FrictionDialog(p.label, s.frictionSeconds, onConfirm = { scope.launch { p.apply() }; pending = null }, onCancel = { pending = null })
+    }
+    if (guideOpen) MakerGuideDialog(onDismiss = { guideOpen = false })
+}
+
+/**
+ * The record of a stop by the phone or a crash of ours (see [ServiceState]). "Fix it" opens the maker's guide and hides the card;
+ * so does "Dismiss". Hidden for 7 days at most.
+ */
+@Composable
+private fun KillCard(n: ServiceState.KillNotice, onFix: () -> Unit) {
+    val ctx = LocalContext.current
+    var gone by remember { mutableStateOf(false) }
+    if (gone) return
+    // The clock time when the stop was today; otherwise the date too.
+    val time = if (android.text.format.DateUtils.isToday(n.atMs)) {
+        android.text.format.DateUtils.formatDateTime(ctx, n.atMs, android.text.format.DateUtils.FORMAT_SHOW_TIME)
+    } else {
+        android.text.format.DateUtils.formatDateTime(
+            ctx, n.atMs,
+            android.text.format.DateUtils.FORMAT_SHOW_DATE or android.text.format.DateUtils.FORMAT_SHOW_TIME or
+                android.text.format.DateUtils.FORMAT_ABBREV_MONTH,
+        )
+    }
+    val hide = {
+        gone = true
+        ServiceState.dismissKill(ctx) // synchronous write: the card must stay hidden even if this composition leaves
+    }
+    Card(
+        Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer),
+    ) {
+        Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            if (n.crashed) {
+                Text("Unrot stopped unexpectedly at $time.", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+            } else {
+                val at = if (Build.VERSION.SDK_INT >= 30) "at $time" else "around $time"
+                Text(
+                    "Unrot was stopped $at (by the phone or from the task manager), so blocking was off until it restarted.",
+                    style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold,
+                )
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                if (!n.crashed) Button(onClick = { hide(); onFix() }) { Text("Fix it") }
+                TextButton(onClick = hide) { Text("Dismiss") }
+            }
+        }
     }
 }
 
@@ -157,9 +207,10 @@ private fun SavedPicturesRow() {
 }
 
 @Composable
-private fun StatusCard(status: SystemStatus) {
+private fun StatusCard(status: SystemStatus, onFix: () -> Unit) {
     val ctx = LocalContext.current
-    val ok = status.serviceEnabled
+    val stopped = status.notRunning
+    val ok = status.serviceEnabled && !stopped
     Card(
         Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
@@ -167,10 +218,21 @@ private fun StatusCard(status: SystemStatus) {
         ),
     ) {
         Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text(if (ok) "Blocking is on" else "Blocking is off", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
+            Text(
+                when {
+                    ok -> "Blocking is on"
+                    stopped -> "Switched on, but your phone stopped it"
+                    else -> "Blocking is off"
+                },
+                style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold,
+            )
             if (!ok) {
-                Text("The Unrot accessibility service isn't running. Turn it back on in Accessibility settings.")
-                Button(onClick = { Intents.openAccessibility(ctx) }) { Text("Open Accessibility settings") }
+                Text(
+                    if (stopped) "Unrot is switched on in Accessibility, but it isn't running. Open the guide to keep it running."
+                    else "The Unrot accessibility service isn't running. Turn it back on in Accessibility settings.",
+                )
+                if (stopped) Button(onClick = onFix) { Text("Fix it") }
+                OutlinedButton(onClick = { Intents.openAccessibility(ctx) }) { Text("Open Accessibility settings") }
             }
             if (!status.batteryExempt) {
                 Text("Battery optimisation may stop Unrot in the background.", style = MaterialTheme.typography.bodyMedium)
@@ -238,6 +300,9 @@ private fun DeveloperCard(s: Settings) {
                     style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    if (BuildConfig.DEBUG) OutlinedButton(onClick = { android.os.Process.killProcess(android.os.Process.myPid()) }) {
+                        Text("Kill Unrot now")
+                    }
                     OutlinedButton(onClick = { dumps = Inspector.list(ctx); hasFiles = Inspector.hasFiles(ctx) }) { Text("Refresh") }
                     if (hasFiles) OutlinedButton(onClick = {
                         Inspector.deleteAll(ctx); dumps = Inspector.list(ctx); hasFiles = Inspector.hasFiles(ctx)

@@ -34,6 +34,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.rememberCoroutineScope
+import app.unrot.BuildConfig
 import app.unrot.data.Settings
 import kotlinx.coroutines.launch
 
@@ -113,30 +114,10 @@ private fun AccessibilityStep(status: SystemStatus, onNext: () -> Unit) {
     }
 }
 
-private data class OemGuide(val name: String, val match: List<String>, val steps: String)
-
-private val OEM_GUIDES = listOf(
-    OemGuide(
-        "Xiaomi / Redmi / POCO", listOf("xiaomi", "redmi", "poco"),
-        "Settings › Apps › Manage apps › Unrot: turn on Autostart, and set Battery saver to \"No restrictions\". " +
-            "In Recents, long-press Unrot and tap the lock icon so it isn't cleared.",
-    ),
-    OemGuide(
-        "Samsung", listOf("samsung"),
-        "Settings › Battery › Background usage limits: make sure Unrot is not in \"Sleeping apps\" or \"Deep sleeping apps\", " +
-            "and add it to \"Never sleeping apps\". Under Apps › Unrot › Battery, choose \"Unrestricted\".",
-    ),
-    OemGuide(
-        "Oppo / Realme / OnePlus", listOf("oppo", "realme", "oneplus"),
-        "Settings › Apps › Unrot › Battery usage: allow background activity and turn on \"Allow auto launch\". " +
-            "In Recents, pull down on Unrot (or tap ⋮) and lock it.",
-    ),
-)
-
 @Composable
 private fun BatteryStep(status: SystemStatus, onNext: () -> Unit) {
     val ctx = LocalContext.current
-    val mine = OEM_GUIDES.firstOrNull { g -> g.match.any { Intents.manufacturer.contains(it) } }
+    val mine = myOemGuide()
     var showAll by remember { mutableStateOf(false) }
     Title("Keep Unrot running")
     Body("Some phones stop background apps to save battery, and blocking stops with them. Let Unrot run unrestricted.")
@@ -148,26 +129,23 @@ private fun BatteryStep(status: SystemStatus, onNext: () -> Unit) {
             Text("Open battery settings")
         }
     }
-    mine?.let { GuideCard(it) }
+    // The step's own button above opens battery settings, so the guides don't repeat it.
+    mine?.let { GuideCard(it, showBatteryButton = false) }
     TextButton(onClick = { showAll = !showAll }) { Text(if (showAll) "Hide other phones" else "Guides for other phones") }
-    if (showAll) OEM_GUIDES.filter { it != mine }.forEach { GuideCard(it) }
+    if (showAll) OEM_GUIDES.filter { it != mine }.forEach { GuideCard(it, showBatteryButton = false) }
     Spacer(Modifier.height(8.dp))
     Button(onClick = onNext, modifier = Modifier.fillMaxWidth()) { Text("Next") }
-}
-
-@Composable
-private fun GuideCard(g: OemGuide) = Card(Modifier.fillMaxWidth()) {
-    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        Text(g.name, fontWeight = FontWeight.SemiBold)
-        Text(g.steps)
-    }
 }
 
 @Composable
 private fun NotificationStep(onDone: () -> Unit) {
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { onDone() }
     Title("Know if it stops")
-    Body("If Android switches Unrot off, it can send you a notification so you can turn it back on. Nothing else gets a notification.")
+    if (BuildConfig.KEEP_ALIVE_FGS) {
+        Body("Unrot can notify you if Android stops it, and shows a small \"Unrot is blocking\" notification while it runs.")
+    } else {
+        Body("If Android switches Unrot off, it can send you a notification so you can turn it back on. Nothing else gets a notification.")
+    }
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         Button(onClick = {
             if (Build.VERSION.SDK_INT >= 33) launcher.launch(Manifest.permission.POST_NOTIFICATIONS) else onDone()

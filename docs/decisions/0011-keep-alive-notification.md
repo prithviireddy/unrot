@@ -8,11 +8,11 @@ On the owner's Realme (Android 13), Realme's "Clear all" in Recents killed Unrot
 Locking Unrot in Recents prevents this, but leaves Unrot's card permanently in Recents, which the owner considers bad UI.
 
 ## Decision
-- **The notification.** While blocking is on, the accessibility service runs as a foreground service. It shows a low-importance, silent notification titled "Unrot is blocking Reels and Shorts", which opens Unrot when tapped.
+- **The notification.** While blocking is on, the accessibility service runs as a foreground service. It shows a low-importance, silent notification titled "Unrot is blocking", which opens Unrot when tapped.
   - On Android 13+ the user can swipe it away, or turn off its channel, and blocking keeps running.
   - On Android 14+ the service declares `foregroundServiceType="specialUse"` with a stated reason for the Play declaration.
 - **The guide.** On Oppo, Realme and OnePlus, onboarding and the Home screen guide the user to allow "Auto launch" and "Background activity" for Unrot, with a button to App info. Locking in Recents is mentioned only as an optional extra.
-- **Detecting a kill.** If the service was stopped by the system (no clean shutdown) while blocking was on, the next start shows a Home card and, when notifications are allowed, a notification pointing to the guide.
+- **Detecting a kill.** If the service was stopped by the system (no clean shutdown) while blocking was on, the next start shows a Home card and, when notifications are allowed, a notification. A stop by the phone points to the guide; a crash of ours says only that Unrot stopped.
 
 ## Alternatives considered
 - **Lock in Recents.** It is reliable, but Unrot's card stays visible in Recents.
@@ -22,4 +22,8 @@ Locking Unrot in Recents prevents this, but leaves Unrot's card permanently in R
 ## Consequences
 - **A visible notification.** It is optional for the user to keep: it can be swiped away or its channel turned off.
 - **Play policy.** A foreground-service permission and a special-use declaration must be justified in the Play listing.
-- **Not proven.** It isn't confirmed that Realme's cleaner spares a foreground service. That gets checked on the owner's phone with "Clear all".
+- **Not proven.** It isn't confirmed that Realme's cleaner spares a foreground service. That gets checked on the owner's phone with "Clear all" (FEAT-0001 A16a).
+- **Task Manager entry and one-tap Stop.** A foreground service shows in Android 13+'s Task Manager with a Stop button. One tap there stops Unrot without the 30 s friction of decision [0004](0004-friction-before-weakening.md). Accepted for the test build only.
+- **The notification comes back after every restart.** Android shows it again each time the service starts, including after a reboot or an update, until the user hides its channel.
+- **The release flag stays off.** `KEEP_ALIVE_FGS` is on only for builds made with `-PkeepAliveFgs`. Turning it on for testers or the Play release is a separate change, after the owner has decided on the Task Manager trade-off, and after the Play special-use declaration and its video are ready (see the ship-build runbook).
+- **Kill records.** Kills are detected from the previous run's record and the system's exit records (API 30+). The Home card and the stop notice say "by the phone or from the task manager", since the record cannot tell a cleaner from a user's Stop.

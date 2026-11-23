@@ -4,6 +4,10 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
+// The owner's keep-alive test build (decision 0011): the foreground notification, its manifest entries and a "-fgs" version
+// suffix. Only with -PkeepAliveFgs (any value but "false"); tester and release builds leave it off.
+val keepAliveFgs = (findProperty("keepAliveFgs") as String?)?.let { it.isEmpty() || it.toBoolean() } ?: false
+
 android {
     namespace = "app.unrot"
     compileSdk = 35
@@ -20,10 +24,20 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("boolean", "KEEP_ALIVE_FGS", keepAliveFgs.toString())
+            if (keepAliveFgs) versionNameSuffix = "-fgs"
+        }
         release {
+            // Release never carries the keep-alive code path or its manifest entries (decision 0011).
+            buildConfigField("boolean", "KEEP_ALIVE_FGS", "false")
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+    }
+    if (keepAliveFgs) {
+        // Replaces the debug manifest, which is the only one there is for debug (decision 0011).
+        sourceSets.getByName("debug").manifest.srcFile("src/keepAliveFgs/AndroidManifest.xml")
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

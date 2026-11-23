@@ -1,52 +1,46 @@
 package app.unrot.work
 
-import android.Manifest
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat
 import app.unrot.data.Settings
 import app.unrot.service.BlockerService
-import app.unrot.ui.MainActivity
+import app.unrot.service.Notices
+import app.unrot.service.ServiceStatus
+import app.unrot.service.blockingOn
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 
-/** Notifies the user when blocking is switched on in the app but the accessibility service isn't running. */
+/**
+ * Notifies the user when blocking is switched on in the app but the service isn't running (decision 0011, step 3). Called from
+ * the rules worker every 12 h.
+ *
+ * Off in the accessibility settings: notify at once. Switched on but not bound or running: wait 5 s and check again (the
+ * service may be binding), then notify with the "switched on but not running" wording. Cancel the notice only when the service
+ * is switched on and up, or when blocking is not wanted at all.
+ */
 object ServiceWatchdog {
-    private const val CHANNEL = "service_status"
-    private const val ID = 1
+    private const val RECHECK_MS = 5_000L
+    private const val TEXT_OFF = "The accessibility service was turned off or killed. Tap to turn it back on."
+    private const val TEXT_NOT_RUNNING = "Your phone stopped Unrot. Open Unrot to fix it."
 
     suspend fun check(ctx: Context) {
         val s = Settings.flow(ctx).first()
-        val wantsBlocking = s.onboarded && (s.instagramEnabled || s.youtubeEnabled)
-        if (!wantsBlocking || BlockerService.isEnabled(ctx)) {
-            NotificationManagerCompat.from(ctx).cancel(ID)
+        if (!blockingOn(s.onboarded, s.instagramEnabled, s.youtubeEnabled)) {
+            Notices.cancelWatchdog(ctx)
             return
         }
-        if (Build.VERSION.SDK_INT >= 33 &&
-            ContextCompat.checkSelfPermission(ctx, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
-        ) return
-
-        val nm = ctx.getSystemService(NotificationManager::class.java)
-        if (Build.VERSION.SDK_INT >= 26) {
-            nm.createNotificationChannel(NotificationChannel(CHANNEL, "Blocker status", NotificationManager.IMPORTANCE_DEFAULT))
+        if (!BlockerService.isEnabled(ctx)) {
+            if (Notices.allowed(ctx)) Notices.watchdog(ctx, TEXT_OFF)
+            return
         }
-        val pi = PendingIntent.getActivity(
-            ctx, 0, Intent(ctx, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
-        )
-        val n = NotificationCompat.Builder(ctx, CHANNEL)
-            .setSmallIcon(android.R.drawable.stat_sys_warning)
-            .setContentTitle("Unrot stopped blocking")
-            .setContentText("The accessibility service was turned off or killed. Tap to turn it back on.")
-            .setContentIntent(pi)
-            .setAutoCancel(true)
-            .build()
-        @Suppress("MissingPermission")
-        NotificationManagerCompat.from(ctx).notify(ID, n)
+        if (ServiceStatus.up(ctx)) {
+            Notices.cancelWatchdog(ctx)
+            return
+        }
+        delay(RECHECK_MS)
+        if (ServiceStatus.up(ctx)) {
+            Notices.cancelWatchdog(ctx)
+        } else if (Notices.allowed(ctx)) {
+            Notices.watchdog(ctx, TEXT_NOT_RUNNING)
+        }
     }
 }

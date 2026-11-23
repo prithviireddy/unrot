@@ -198,6 +198,13 @@ class BlockerService : AccessibilityService() {
     private var mismatches = 0
     private var unknowns = 0
     private var receiversOn = false
+    /** Main. The foreground notification: the features' last value, whether it is on, and the permission last seen (decision 0011). */
+    private var fgsWanted = false
+    private var fgsRunning = false
+    private var notifGranted: Boolean? = null
+    /** Main. The blocking value last written to the service record, and the elapsed ms of the last heartbeat. */
+    private var blockingWritten: Boolean? = null
+    private var lastHeartbeatAt = 0L
     /** What the overlay was last told to show. Drives the probe (see [probeAlive]) and goes into the Inspector dump. */
     private var renderName = "hidden"
     private var renderSlots = 0
@@ -252,8 +259,16 @@ class BlockerService : AccessibilityService() {
 
     private val screenOffReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            if (intent.action == Intent.ACTION_SCREEN_OFF) hideBar(keepRebuilt = true) // nothing to show until the screen is back
-            else scheduleEval(STATE_DELAY_MS)                         // screen on / unlocked
+            when (intent.action) {
+                // A reboot or a power-off is a clean stop: no kill card after it (see ServiceState).
+                Intent.ACTION_SHUTDOWN -> ServiceState.markClean(this@BlockerService)
+                Intent.ACTION_SCREEN_OFF -> {
+                    ServiceState.heartbeat(this@BlockerService, System.currentTimeMillis())
+                    lastHeartbeatAt = SystemClock.elapsedRealtime()
+                    hideBar(keepRebuilt = true) // nothing to show until the screen is back
+                }
+                else -> scheduleEval(STATE_DELAY_MS) // screen on / unlocked
+            }
         }
     }
     private val packageReceiver = object : BroadcastReceiver() {
@@ -290,6 +305,19 @@ class BlockerService : AccessibilityService() {
         RulesRepository.load(this)
         store = BarStore(this, RulesRepository.current.version)
         registerReceivers()
+        // One read-decide-write: a kill of the previous run becomes a card and, when allowed, a notification (decision 0011).
+        // Failures here must not stop blocking, so they are logged and the service goes on.
+        val nowWall = System.currentTimeMillis()
+        lastHeartbeatAt = SystemClock.elapsedRealtime()
+        runCatching {
+            when (ServiceState.connect(this, nowWall)) {
+                KillVerdict.None -> Unit
+                is KillVerdict.Killed -> Notices.postKill(this, nowWall, crashed = false)
+                is KillVerdict.Crashed -> Notices.postKill(this, nowWall, crashed = true)
+            }
+        }.onFailure { Log.w(TAG, "kill check not run: ${it.javaClass.simpleName}") }
+        // This run is up, so a watchdog notice from before is out of date.
+        Notices.cancelWatchdog(this)
         Settings.flow(this).onEach { s ->
             settings = s
             if (!coloursRestored) {
@@ -298,6 +326,7 @@ class BlockerService : AccessibilityService() {
                 coloursRestored = true
             }
             applyPictureSettings(s)
+            keepAlive(s)
             overlays.setInspectorButton(s.devUnlocked && s.inspectorEnabled, ::dump)
             scheduleEval(0)
         }.launchIn(scope)
@@ -309,6 +338,10 @@ class BlockerService : AccessibilityService() {
         if (pkg !in TARGET_PACKAGES) return
         val now = SystemClock.elapsedRealtime()
         lastTargetEventAt = now
+        if (now - lastHeartbeatAt >= HEARTBEAT_MS) {
+            lastHeartbeatAt = now
+            ServiceState.heartbeat(this, System.currentTimeMillis())
+        }
         // While the last read saw a DM chat, Instagram events keep the policy's DM context fresh (see lastReadSawDm).
         if (lastReadSawDm && pkg == INSTAGRAM_PKG) policy.dmSeen(wallOf(now))
         if (event.windowId >= 0) {
@@ -384,6 +417,44 @@ class BlockerService : AccessibilityService() {
             bar.trimCrops()
             storeLoadRequested = false // the saved pictures may be loaded again, on the next read (see applyRead)
         }
+    }
+
+    /**
+     * Main. The foreground notification follows the features (see [fgsTransition]), and the blocking record follows
+     * [blockingOn]: on the first emission and whenever it changes. Nothing else in the settings touches either.
+     */
+    private fun keepAlive(s: Settings) {
+        val blocking = blockingOn(s.onboarded, s.instagramEnabled, s.youtubeEnabled)
+        if (blockingWritten != blocking) {
+            blockingWritten = blocking
+            ServiceState.setBlocking(this, blocking)
+        }
+        val wanted = foregroundWanted(s.instagramEnabled, s.youtubeEnabled)
+        val action = fgsTransition(fgsWanted, wanted)
+        fgsWanted = wanted
+        if (!BuildConfig.KEEP_ALIVE_FGS) return
+        when (action) {
+            FgsAction.START -> startKeepAlive()
+            FgsAction.STOP -> stopKeepAlive()
+            FgsAction.NONE -> Unit
+        }
+        // The permission can be granted after the start: post the notification once more, while it is on.
+        val granted = Notices.allowed(this)
+        if (granted && notifGranted == false && fgsRunning) startKeepAlive()
+        notifGranted = granted
+    }
+
+    /** Main. Starts the foreground notification; a failure is logged and blocking goes on without it. */
+    private fun startKeepAlive() {
+        runCatching { Notices.startForeground(this); fgsRunning = true }
+            .onFailure { Log.w(TAG, "foreground notification not started: ${it.javaClass.simpleName}") }
+    }
+
+    /** Main. Removes the foreground notification (never throws). */
+    private fun stopKeepAlive() {
+        if (!fgsRunning) return
+        fgsRunning = false
+        runCatching { Notices.stopForeground(this) }
     }
 
     /** Throttle (not debounce): content-changed events never stop while a video plays. */
@@ -1699,7 +1770,10 @@ class BlockerService : AccessibilityService() {
         receiversOn = true
         ContextCompat.registerReceiver(
             this, screenOffReceiver,
-            IntentFilter().apply { addAction(Intent.ACTION_SCREEN_OFF); addAction(Intent.ACTION_SCREEN_ON); addAction(Intent.ACTION_USER_PRESENT) },
+            IntentFilter().apply {
+                addAction(Intent.ACTION_SCREEN_OFF); addAction(Intent.ACTION_SCREEN_ON); addAction(Intent.ACTION_USER_PRESENT)
+                addAction(Intent.ACTION_SHUTDOWN)
+            },
             ContextCompat.RECEIVER_EXPORTED,
         )
         ContextCompat.registerReceiver(
@@ -1852,6 +1926,7 @@ class BlockerService : AccessibilityService() {
             put("navInsets", JSONObject().put("l", ins.left).put("t", ins.top).put("r", ins.right).put("b", ins.bottom))
         }
         layout?.let { put("bar", barJson(it)) }
+        put("foreground", fgsRunning)
     }
 
     private fun barJson(b: BarLayout): JSONObject = JSONObject().apply {
@@ -1910,6 +1985,8 @@ class BlockerService : AccessibilityService() {
     override fun onInterrupt() {}
 
     override fun onUnbind(intent: Intent?): Boolean {
+        // The clean marker is written before the teardown, synchronously: a normal stop is never reported as a kill.
+        ServiceState.markClean(this)
         teardown()
         return super.onUnbind(intent)
     }
@@ -1949,6 +2026,7 @@ class BlockerService : AccessibilityService() {
         if (::barOverlay.isInitialized) barOverlay.remove()
         tickerRunning = false
         unregisterReceivers()
+        stopKeepAlive()
         if (::barCapture.isInitialized) barCapture.shutdown()
         tapExecutor.shutdownNow()
         scope.cancel()
@@ -1982,6 +2060,8 @@ class BlockerService : AccessibilityService() {
         private const val STATE_DELAY_MS = 60L
         private const val POLL_MS = 500L
         private const val TICK_MS = 100L
+        /** The service record's liveness is refreshed at most this often while a target app sends events (see [ServiceState]). */
+        private const val HEARTBEAT_MS = 10L * 60 * 1000
         private const val COLOUR_SAVE_MS = 5_000L
         private const val ACTION_DEBOUNCE_MS = 700L
         private const val ESCALATE_WINDOW_MS = 2_500L
