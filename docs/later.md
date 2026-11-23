@@ -32,3 +32,9 @@ To pick one up, run it through `sharpen-feature`, then write a FEAT. Delete it f
 | Idea | Why it's waiting | Bring it back when |
 |---|---|---|
 | **Monetization** (paid tier, donations) | Free first. Running costs are about $0. See [0006](decisions/0006-no-backend-remote-json-rules.md) | The app has real users and costs appear |
+
+## Predict the return from a DM chat's back arrow (bar redraw)
+- **Idea:** when the user taps the ← arrow in a chat (a `TYPE_VIEW_CLICKED` from the chat window), draw the redrawn bar at once, before the chat slides away. This would remove the last 2–4 frames of the real 5-icon bar on ← returns.
+- **Doesn't help:** the system back gesture, which accessibility services don't receive.
+- **Parked:** 2026-11-24, when the owner moved on to faster reel blocking.
+- **Brings it back:** if the remaining frames still bother the owner in everyday use.

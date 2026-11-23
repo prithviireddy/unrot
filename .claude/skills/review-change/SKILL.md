@@ -1,9 +1,21 @@
 ---
 name: review-change
-description: Independently review an Unrot plan or code change and end with SHIP or NO-SHIP. Use before installing a build on a phone for testers, before a Play upload, or when the user asks for a review; not as the author checking their own work in passing.
+description: Independently review an Unrot plan or code change with an Opus subagent at max effort, ending with SHIP or NO-SHIP. Use twice for every non-trivial change — on the written plan before coding, and on the implementation before it ships (installed for testers, committed, or uploaded) — and whenever the user asks for a review; not as the author checking their own work in passing.
 ---
 
 # Review a plan or change
+
+## When
+A non-trivial change, such as a feature, a bug fix that touches the service or overlays, or a rules or privacy change, goes through two gates:
+1. **Plan gate.** Write the plan first, in `docs/plans/` or the FEAT. Review it here before any code is written. Code starts only after `SHIP`.
+2. **Ship gate.** After implementation, review the exact diff here. Only after `SHIP` does it go to testers, get committed, or get uploaded. Installing on the owner's own phone to test may happen while this review runs.
+
+Each gate counts its own rounds (step 6). A device finding made while a review is running is fixed in the same change: send it to the same reviewer as an addition, without starting a new count.
+
+## Who reviews
+- **Reviewer:** always a fresh subagent: `Agent` with `model: "opus"`, `effort: "max"`, read-only, never the author. Use another model only when the user asks for one, for example "Fable max" for a final pass.
+- **Its brief holds:** this checklist, what's being reviewed (plan path, or diff and files), the why (device evidence), the hard rules that must hold, and the build command. It never holds the author's conclusions.
+- **Rounds 2 and 3:** send them to the same reviewer (`SendMessage`), so it checks its own earlier findings.
 
 ## Workflow
 
@@ -37,12 +49,24 @@ description: Independently review an Unrot plan or code change and end with SHIP
    - the smallest safe fix
 
    Nits are listed but never block.
-5. **End with a verdict.** The last line is exactly `SHIP` (no blockers left) or `NO-SHIP`. From the second round on, check the earlier findings and the changed parts only. Allow at most 3 rounds; after that, escalate to the user.
+5. **End with a verdict.** The last line is exactly `SHIP` (no blockers left) or `NO-SHIP`. From the second round on, check the earlier findings and the changed parts only.
+6. **At most 3 rounds per change, then a manual reviewer.**
+   - Count the rounds for one change. Fixes made in answer to a round's findings belong to the same change and don't reset the count. Don't split work into "new" changes to get more rounds.
+   - If round 3 is still `NO-SHIP`, stop. Don't fix anything else and don't start a 4th automated round.
+   - Write the hand-off to `docs/reviews/<YYYY-MM-DD>-<change>-manual-review.md` (create `docs/reviews/` if needed). For each open blocker, give:
+     - the file:line
+     - the concrete failure
+     - the reviewer's suggested fix
+     - what was already tried in earlier rounds
+   - Add the build and test status and what's still untested on a phone.
+   - Give that file to the user as the manual reviewer, and wait for their decision: fix, accept the risk, or drop the change. Only then continue, and the next review round starts again from round 1.
 
 ## Checks
 
+- [ ] The plan was reviewed before coding, and the implementation before shipping, each by an Opus max subagent (or the model the user named).
 - [ ] The reviewer was independent of the author.
 - [ ] Findings are evidence-based, ordered by severity, and each blocker has a fix.
 - [ ] Privacy, false positives and overlay leaks were covered explicitly.
 - [ ] Tests and the build were run, or their absence was stated.
 - [ ] The last line is exactly `SHIP` or `NO-SHIP`.
+- [ ] No more than 3 rounds for this change. A 3rd `NO-SHIP` went to the manual reviewer with a hand-off file, not to a 4th round.

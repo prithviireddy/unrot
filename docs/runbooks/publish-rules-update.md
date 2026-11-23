@@ -2,7 +2,9 @@
 
 **When:** detection needs fixing or extending, and the app code doesn't need to change.
 
-**Prerequisite:** remote rules hosting. `RULES_URL` in `app/build.gradle.kts` must point to the hosted file, in a build installed on the phones. Until that's done, rules ship only inside the APK: follow steps 1–4, then [ship a build](ship-build-to-testers.md) instead of step 5.
+**Remote rules are not live yet.** `RULES_URL` in `app/build.gradle.kts` is blank, so rules ship only inside the APK: follow steps 1–4, then [ship a build](ship-build-to-testers.md) instead of step 5. Hosting comes later, with `RULES_URL` set in a build installed on the phones.
+
+**First response to a bad bar:** set the bar's `"mode"` to `"patch"` in `rules.json` (a plain patch in the bar colour, no redraw, no screenshots). Then fix the detection and bump `"version"`. A patch-only bar is the safe default while the rule is wrong.
 
 ## Steps
 1. **Base the change on evidence:** a dump from [capture-inspector-dumps](capture-inspector-dumps.md). Follow the `fix-bug` skill: write a failing test from the dump first.

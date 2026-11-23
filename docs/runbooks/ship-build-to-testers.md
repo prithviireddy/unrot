@@ -6,6 +6,7 @@
 1. Run the `review-change` skill on everything since the last shipped build. It needs a `SHIP` verdict.
 2. Bump `versionCode` (+1) and `versionName` in `app/build.gradle.kts`, so the new APK installs over the old one.
 3. Update `CHANGELOG.md` with what testers will notice (`commit-and-changelog` skill).
+4. **Before any Play upload** (not part of this runbook): the store's accessibility declaration must say the service takes screenshots of the bar's tabs (decision [0008](../decisions/0008-redraw-bottom-bar-sampled-colour.md)), and the store screenshot must show the disclosure (saved pictures, [0009](../decisions/0009-save-bar-pictures-on-phone.md)).
 
 ## Build
 ```bash
@@ -29,7 +30,7 @@ The output is `app/build/outputs/apk/debug/app-debug.apk`. Rename it when sharin
 4. Allow notifications, so they hear about it if Android stops the service.
 
 ## Check
-- The status card says "Blocking is on". The Instagram Reels tab and the YouTube Shorts tab are covered.
+- The status card says "Blocking is on". The bottom bar is redrawn without the Instagram Reels tab and the YouTube Shorts tab (on Android 8–10, or with Simple patch, the tab is patched instead).
 - Work through the acceptance table of the current FEAT ([FEAT-0001](../feats/FEAT-0001-v0.1-mvp.md) for v0.1).
 
 ## Recover

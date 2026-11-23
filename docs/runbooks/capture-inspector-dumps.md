@@ -39,5 +39,5 @@ Dumps can contain text that was on screen: usernames, captions, **DM messages**.
 
 ## Recover
 - **No DUMP button:** check that the accessibility service is on (the status card says "Blocking is on") and that both developer mode and Inspector are on.
-- **"Nothing to dump":** the active window had no content (for example the notification shade). Close it and tap again.
+- **"Nothing to dump":** the active window is not a window of Instagram or YouTube (for example the notification shade, or any other app), or it had no content. Open the screen in Instagram or YouTube, close anything over it, and tap again.
 - **Turn it off afterwards:** switch Inspector off, so the button doesn't sit over every app.
