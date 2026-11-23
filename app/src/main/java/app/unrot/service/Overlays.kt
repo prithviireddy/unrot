@@ -13,17 +13,18 @@ import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
+import app.unrot.rules.Box
 import app.unrot.rules.Cover
 
 /**
- * All windows we draw over other apps. They use TYPE_ACCESSIBILITY_OVERLAY, which needs no
- * SYSTEM_ALERT_WINDOW permission because it belongs to the accessibility service.
+ * The cover patches, the toast and the Inspector button we draw over other apps (the bar is drawn by BarOverlay). They use
+ * TYPE_ACCESSIBILITY_OVERLAY, which needs no SYSTEM_ALERT_WINDOW permission because it belongs to the accessibility service.
  */
 class Overlays(private val service: AccessibilityService) {
     private val wm = service.getSystemService(WindowManager::class.java)
     private val main = Handler(Looper.getMainLooper())
 
-    private val coverViews = HashMap<String, View>() // key = rect
+    private val coverViews = HashMap<Box, View>() // key = screen rect
     private var toastView: View? = null
     private var inspectorButton: View? = null
     private val hideToast = Runnable { toastView?.let { removeSafely(it) }; toastView = null }
@@ -48,7 +49,7 @@ class Overlays(private val service: AccessibilityService) {
 
     /** Shows exactly [covers] (adding, moving or removing patches as needed). Tapping a patch does nothing. */
     fun setCovers(covers: List<Cover>) {
-        val wanted = covers.associateBy { "${it.left},${it.top},${it.right},${it.bottom}" }
+        val wanted = covers.associateBy { Box(it.left, it.top, it.right, it.bottom) }
         (coverViews.keys - wanted.keys).forEach { k -> coverViews.remove(k)?.let(::removeSafely) }
         val dark = isDark
         for ((k, c) in wanted) {
@@ -66,6 +67,16 @@ class Overlays(private val service: AccessibilityService) {
     fun clearCovers() = setCovers(emptyList())
 
     val hasCovers get() = coverViews.isNotEmpty()
+
+    /** Screen rectangles of every window this class is showing (patches, and the toast and DUMP button once laid out). */
+    fun ownRects(): List<Box> = coverViews.keys.toList() + listOfNotNull(rectOf(toastView), rectOf(inspectorButton))
+
+    private fun rectOf(v: View?): Box? {
+        if (v == null || !v.isLaidOut) return null
+        val loc = IntArray(2)
+        v.getLocationOnScreen(loc)
+        return Box(loc[0], loc[1], loc[0] + v.width, loc[1] + v.height)
+    }
 
     /** Brief, non-touchable message near the top of the screen. */
     fun toast(message: String, durationMs: Long = 1_500) {

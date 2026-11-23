@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 11 and older full backup. The bar's saved pictures and Inspector dumps stay on this phone. -->
+<full-backup-content>
+    <exclude domain="file" path="bar-cache/" />
+    <exclude domain="file" path="dumps/" />
+</full-backup-content>

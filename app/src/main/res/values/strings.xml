@@ -2,5 +2,5 @@
 <resources>
     <string name="app_name">Unrot</string>
     <string name="service_label">Unrot Reels &amp; Shorts blocker</string>
-    <string name="service_description">Unrot reads the screen only inside Instagram and YouTube to detect Reels and Shorts, and presses Back when you open them. Nothing on your screen is stored or sent anywhere.</string>
+    <string name="service_description">Unrot reads the screen only inside Instagram and YouTube to detect Reels and Shorts, and presses Back when you open them. It may take a screenshot to redraw the bottom bar without the Reels/Shorts tab; only the bar\'s tab pictures are kept, privately on this phone. Nothing is sent anywhere.</string>
 </resources>

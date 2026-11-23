@@ -38,6 +38,7 @@ import app.unrot.BuildConfig
 import app.unrot.data.Settings
 import app.unrot.inspector.Inspector
 import app.unrot.rules.RulesRepository
+import app.unrot.service.BarStore
 import app.unrot.work.RulesWorker
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -62,6 +63,7 @@ fun HomeScreen(s: Settings, status: SystemStatus) {
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Text("Unrot", style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Bold)
+            if (s.onboarded && s.disclosureVersion < DISCLOSURE_VERSION) DisclosureCard()
             StatusCard(status)
 
             Card(Modifier.fillMaxWidth()) {
@@ -88,6 +90,12 @@ fun HomeScreen(s: Settings, status: SystemStatus) {
                     ToggleRow("Allow reels from DMs", "Watch a reel a friend sent you. Swiping to the next one is still blocked.", s.dmException) { on ->
                         change("allow reels from DMs", weakens = on) { Settings.setDmException(ctx, on) }
                     }
+                    HorizontalDivider()
+                    // Not behind the countdown: a plain patch does not weaken blocking.
+                    ToggleRow("Simple patch", "Cover the Reels/Shorts tab with a plain patch instead of redrawing the bar. No screenshots.", s.simplePatch) { on ->
+                        scope.launch { Settings.setSimplePatch(ctx, on) }
+                    }
+                    SavedPicturesRow()
                 }
             }
 
@@ -99,6 +107,52 @@ fun HomeScreen(s: Settings, status: SystemStatus) {
 
     pending?.let { p ->
         FrictionDialog(p.label, s.frictionSeconds, onConfirm = { scope.launch { p.apply() }; pending = null }, onCancel = { pending = null })
+    }
+}
+
+/**
+ * Disclosure version of the screenshots and the saved bar pictures. Must match Settings.disclosureVersion's meaning:
+ * 2 = screenshots to redraw the bar; 3 = the bar's tab pictures are also saved on the phone.
+ */
+const val DISCLOSURE_VERSION = 3
+
+/** The screenshot and saved-picture disclosure, shared by onboarding and the Home card. */
+const val BAR_PICTURES_DISCLOSURE =
+    "While Instagram or YouTube is open, Unrot may take a screenshot of the screen. It keeps only the bottom bar's tab " +
+        "pictures (these can include your profile picture and DM unread count), saved privately on this phone to redraw the bar " +
+        "without the Reels/Shorts tab, and discards the rest at once. Nothing is ever sent anywhere."
+
+@Composable
+private fun DisclosureCard() {
+    val ctx = LocalContext.current
+    val scope = rememberCoroutineScope()
+    Card(Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(
+                "Unrot now redraws the bar",
+                style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold,
+            )
+            Text(BAR_PICTURES_DISCLOSURE, style = MaterialTheme.typography.bodyMedium)
+            Button(onClick = { scope.launch { Settings.setDisclosureVersion(ctx, DISCLOSURE_VERSION) } }) { Text("Accept") }
+        }
+    }
+}
+
+/** Deletes the saved bar pictures from the phone and tells the running service to clear its crops. */
+@Composable
+private fun SavedPicturesRow() {
+    val ctx = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var deleted by remember { mutableStateOf(false) }
+    Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp), verticalAlignment = Alignment.CenterVertically) {
+        TextButton(onClick = {
+            scope.launch {
+                BarStore.wipe(ctx)
+                Settings.setBarCacheResetAt(ctx, System.currentTimeMillis())
+                deleted = true
+            }
+        }) { Text("Delete saved bar pictures") }
+        if (deleted) Text("Deleted. New pictures are taken when needed.", style = MaterialTheme.typography.bodySmall)
     }
 }
 
@@ -172,6 +226,7 @@ private fun DeveloperCard(s: Settings) {
     val ctx = LocalContext.current
     val scope = rememberCoroutineScope()
     var dumps by remember { mutableStateOf(Inspector.list(ctx)) }
+    var hasFiles by remember { mutableStateOf(Inspector.hasFiles(ctx)) }
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(vertical = 8.dp)) {
             ToggleRow("Inspector", "Shows a DUMP button on screen. Tap it in Instagram or YouTube to save the screen's accessibility tree.", s.inspectorEnabled) { on ->
@@ -183,9 +238,9 @@ private fun DeveloperCard(s: Settings) {
                     style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    OutlinedButton(onClick = { dumps = Inspector.list(ctx) }) { Text("Refresh") }
-                    if (dumps.isNotEmpty()) OutlinedButton(onClick = {
-                        dumps.forEach { it.delete() }; dumps = Inspector.list(ctx)
+                    OutlinedButton(onClick = { dumps = Inspector.list(ctx); hasFiles = Inspector.hasFiles(ctx) }) { Text("Refresh") }
+                    if (hasFiles) OutlinedButton(onClick = {
+                        Inspector.deleteAll(ctx); dumps = Inspector.list(ctx); hasFiles = Inspector.hasFiles(ctx)
                     }) { Text("Delete all") }
                 }
                 if (dumps.isEmpty()) Text("No dumps yet.", style = MaterialTheme.typography.bodyMedium)

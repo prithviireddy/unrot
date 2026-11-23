@@ -26,9 +26,14 @@ class Policy(private val clock: () -> Long = System::currentTimeMillis) {
 
     val dmPassActive get() = dmPassSince != null
 
-    fun onScreen(det: Detection, s: Settings): Decision {
+    /**
+     * [fast]: the detection comes from the block probe, which carries no markers. Such a detection does not restamp the DM
+     * context: the DM pass then rests on the stamp of the read that saw the DM thread (or of an Instagram event while that
+     * read's DM flag was set, see BlockerService.lastReadSawDm).
+     */
+    fun onScreen(det: Detection, s: Settings, fast: Boolean = false): Decision {
         val now = clock()
-        if ("dm" in det.markers) lastDmSeenAt = now
+        if (!fast && "dm" in det.markers) lastDmSeenAt = now
 
         val blocks = det.blocks.filter { s.featureEnabled(it.feature) }
         currentBlocks = blocks
@@ -50,6 +55,14 @@ class Policy(private val clock: () -> Long = System::currentTimeMillis) {
 
         dmPassSince = null
         return Decision.Block(blocks.first())
+    }
+
+    /**
+     * A DM thread was seen at [atMs] (the same clock as the policy's): by the block probe, or by a full read whose block
+     * decision was skipped as stale. Only ever moves the DM time forward.
+     */
+    fun dmSeen(atMs: Long) {
+        if (atMs > lastDmSeenAt) lastDmSeenAt = atMs
     }
 
     /** A TYPE_VIEW_SCROLLED event arrived from a view with id [sourceViewId]. */

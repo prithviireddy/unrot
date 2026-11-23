@@ -1,0 +1,953 @@
+{
+ "package": "com.google.android.youtube",
+ "versionCode": 1561310996,
+ "versionName": "21.45.82",
+ "screen": {
+  "w": 1080,
+  "h": 2400
+ },
+ "rulesVersion": 1,
+ "matched": {
+  "blocks": [],
+  "markers": [],
+  "covers": []
+ },
+ "nodeCount": 119,
+ "tree": {
+  "cls": "android.widget.FrameLayout",
+  "bounds": "[0,0][1080,2400]",
+  "order": 0,
+  "win": 7169,
+  "children": [
+   {
+    "cls": "android.widget.LinearLayout",
+    "bounds": "[0,0][1080,2352]",
+    "order": 1,
+    "children": [
+     {
+      "cls": "android.widget.FrameLayout",
+      "bounds": "[0,110][1080,2352]",
+      "order": 2,
+      "children": [
+       {
+        "id": "com.google.android.youtube:id/action_bar_root",
+        "cls": "android.widget.LinearLayout",
+        "bounds": "[0,110][1080,2352]",
+        "order": 1,
+        "children": [
+         {
+          "id": "android:id/content",
+          "cls": "android.widget.FrameLayout",
+          "bounds": "[0,110][1080,2352]",
+          "order": 2,
+          "children": [
+           {
+            "cls": "android.widget.FrameLayout",
+            "bounds": "[0,110][1080,2352]",
+            "order": 1,
+            "children": [
+             {
+              "id": "com.google.android.youtube:id/accessibility_layer_container",
+              "cls": "android.widget.FrameLayout",
+              "bounds": "[0,110][1080,2352]",
+              "order": 1,
+              "children": [
+               {
+                "id": "com.google.android.youtube:id/creation_modes_fragment_container",
+                "cls": "android.widget.FrameLayout",
+                "bounds": "[0,110][1080,2352]",
+                "order": 1,
+                "children": [
+                 {
+                  "id": "com.google.android.youtube:id/cm_accessibility_layer_container",
+                  "cls": "android.widget.FrameLayout",
+                  "bounds": "[0,110][1080,2352]",
+                  "order": 1,
+                  "children": [
+                   {
+                    "id": "com.google.android.youtube:id/creation_modes_container",
+                    "cls": "android.view.ViewGroup",
+                    "bounds": "[0,110][1080,2352]",
+                    "order": 1,
+                    "children": [
+                     {
+                      "id": "com.google.android.youtube:id/mode_fragment_container",
+                      "cls": "android.view.ViewGroup",
+                      "bounds": "[0,110][1080,2030]",
+                      "order": 1,
+                      "children": [
+                       {
+                        "cls": "android.widget.FrameLayout",
+                        "bounds": "[0,110][1080,2030]",
+                        "order": 1,
+                        "children": [
+                         {
+                          "id": "com.google.android.youtube:id/reel_container",
+                          "cls": "android.widget.FrameLayout",
+                          "bounds": "[0,110][1080,2030]",
+                          "order": 1,
+                          "children": [
+                           {
+                            "id": "com.google.android.youtube:id/reel_camera_layout",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[0,110][1080,2030]",
+                            "order": 1,
+                            "children": [
+                             {
+                              "id": "com.google.android.youtube:id/reel_camera_view_container",
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[0,110][1080,2030]",
+                              "order": 1,
+                              "children": [
+                               {
+                                "id": "com.google.android.youtube:id/camera_x_view",
+                                "cls": "android.widget.FrameLayout",
+                                "bounds": "[0,110][1080,2030]",
+                                "order": 1,
+                                "children": [
+                                 {
+                                  "id": "com.google.android.youtube:id/camera_view_layout",
+                                  "cls": "android.widget.FrameLayout",
+                                  "bounds": "[0,110][1080,2030]",
+                                  "order": 1,
+                                  "children": [
+                                   {
+                                    "id": "com.google.android.youtube:id/camera_preview_surface",
+                                    "cls": "android.view.View",
+                                    "bounds": "[0,110][1080,2030]",
+                                    "order": 1
+                                   }
+                                  ]
+                                 }
+                                ]
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/reel_camera_focus_overlay",
+                                "cls": "android.widget.FrameLayout",
+                                "bounds": "[0,110][1080,2030]",
+                                "order": 4,
+                                "children": [
+                                 {
+                                  "cls": "android.widget.FrameLayout",
+                                  "bounds": "[0,110][288,398]",
+                                  "order": 1
+                                 }
+                                ]
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/record_button_view_container",
+                                "cls": "android.widget.LinearLayout",
+                                "bounds": "[0,110][1080,1994]",
+                                "order": 16,
+                                "children": [
+                                 {
+                                  "cls": "android.widget.FrameLayout",
+                                  "bounds": "[0,1589][1080,1994]",
+                                  "order": 2,
+                                  "children": [
+                                   {
+                                    "id": "com.google.android.youtube:id/effects_carousel_recycler_view",
+                                    "cls": "android.support.v7.widget.RecyclerView",
+                                    "bounds": "[0,1731][1080,1851]",
+                                    "scrollable": true,
+                                    "order": 1,
+                                    "children": [
+                                     {
+                                      "cls": "android.widget.FrameLayout",
+                                      "desc": "x",
+                                      "bounds": "[456,1731][624,1851]",
+                                      "clickable": true,
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/effect_thumbnail",
+                                        "cls": "android.widget.ImageView",
+                                        "bounds": "[456,1731][624,1851]",
+                                        "order": 1
+                                       }
+                                      ]
+                                     },
+                                     {
+                                      "cls": "android.widget.FrameLayout",
+                                      "desc": "x",
+                                      "bounds": "[696,1731][816,1851]",
+                                      "clickable": true,
+                                      "order": 2,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/effect_thumbnail",
+                                        "cls": "android.widget.ImageView",
+                                        "bounds": "[696,1731][816,1851]",
+                                        "order": 1
+                                       }
+                                      ]
+                                     },
+                                     {
+                                      "cls": "android.widget.FrameLayout",
+                                      "desc": "x",
+                                      "bounds": "[840,1731][960,1851]",
+                                      "clickable": true,
+                                      "order": 3,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/effect_thumbnail",
+                                        "cls": "android.widget.ImageView",
+                                        "bounds": "[840,1731][960,1851]",
+                                        "order": 1
+                                       }
+                                      ]
+                                     },
+                                     {
+                                      "cls": "android.widget.FrameLayout",
+                                      "desc": "x",
+                                      "bounds": "[984,1731][1080,1851]",
+                                      "clickable": true,
+                                      "order": 4,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/effect_thumbnail",
+                                        "cls": "android.widget.ImageView",
+                                        "bounds": "[984,1731][1080,1851]",
+                                        "order": 1
+                                       }
+                                      ]
+                                     },
+                                     {
+                                      "cls": "android.widget.FrameLayout",
+                                      "desc": "x",
+                                      "bounds": "[1128,1731][1080,1851]",
+                                      "clickable": true,
+                                      "visible": false,
+                                      "order": 5,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/effect_thumbnail",
+                                        "cls": "android.widget.ImageView",
+                                        "bounds": "[1128,1731][1080,1851]",
+                                        "visible": false,
+                                        "order": 1
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "id": "com.google.android.youtube:id/record_button_view",
+                                    "cls": "android.widget.FrameLayout",
+                                    "bounds": "[337,1589][742,1994]",
+                                    "order": 2,
+                                    "children": [
+                                     {
+                                      "id": "com.google.android.youtube:id/shorts_record_button_view_container",
+                                      "cls": "android.widget.FrameLayout",
+                                      "bounds": "[337,1589][742,1994]",
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/shorts_record_button_touch_area",
+                                        "cls": "android.widget.FrameLayout",
+                                        "desc": "x",
+                                        "bounds": "[431,1683][647,1899]",
+                                        "clickable": true,
+                                        "order": 1,
+                                        "children": [
+                                         {
+                                          "id": "com.google.android.youtube:id/shorts_record_button_outer_ring",
+                                          "cls": "android.widget.ImageView",
+                                          "bounds": "[431,1683][647,1899]",
+                                          "order": 1
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 }
+                                ]
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/shorts_camera_top_scrim",
+                                "cls": "android.view.View",
+                                "bounds": "[0,110][1080,470]",
+                                "order": 5
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/progress_indicator",
+                                "cls": "android.view.View",
+                                "bounds": "[48,158][1032,257]",
+                                "order": 6
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/shorts_camera_sticker_warning_text",
+                                "cls": "android.widget.TextView",
+                                "text": "x",
+                                "bounds": "[179,1033][901,1106]",
+                                "visible": false,
+                                "order": 10
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/shorts_camera_bottom_scrim",
+                                "cls": "android.view.View",
+                                "bounds": "[0,1670][1080,2030]",
+                                "order": 14
+                               }
+                              ]
+                             },
+                             {
+                              "id": "com.google.android.youtube:id/fadeable_view_container",
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[0,110][1080,2030]",
+                              "order": 6,
+                              "children": [
+                               {
+                                "id": "com.google.android.youtube:id/shorts_camera_toolbar",
+                                "cls": "android.widget.FrameLayout",
+                                "bounds": "[0,110][1080,2030]",
+                                "order": 6,
+                                "children": [
+                                 {
+                                  "id": "com.google.android.youtube:id/shorts_camera_toolbar_container",
+                                  "cls": "android.widget.RelativeLayout",
+                                  "bounds": "[882,497][1080,1643]",
+                                  "order": 2,
+                                  "children": [
+                                   {
+                                    "id": "com.google.android.youtube:id/button_scroller",
+                                    "cls": "android.widget.ScrollView",
+                                    "bounds": "[882,557][1080,1583]",
+                                    "order": 2,
+                                    "children": [
+                                     {
+                                      "id": "com.google.android.youtube:id/shorts_camera_toolbar_buttons",
+                                      "cls": "android.widget.LinearLayout",
+                                      "bounds": "[882,575][1068,1583]",
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/shorts_flip_button",
+                                        "cls": "android.widget.Button",
+                                        "desc": "x",
+                                        "bounds": "[882,575][1068,719]",
+                                        "clickable": true,
+                                        "order": 3,
+                                        "children": [
+                                         {
+                                          "cls": "android.widget.FrameLayout",
+                                          "bounds": "[882,575][1068,719]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.LinearLayout",
+                                            "bounds": "[882,575][1032,695]",
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.google.android.youtube:id/editor_tool_button_icon",
+                                              "cls": "android.widget.ImageButton",
+                                              "bounds": "[912,575][1032,695]",
+                                              "order": 2
+                                             },
+                                             {
+                                              "cls": "android.widget.FrameLayout",
+                                              "bounds": "[912,635][912,635]",
+                                              "visible": false,
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "id": "com.google.android.youtube:id/shorts_timer_button",
+                                        "cls": "android.widget.Button",
+                                        "desc": "x",
+                                        "bounds": "[882,719][1068,863]",
+                                        "clickable": true,
+                                        "order": 4,
+                                        "children": [
+                                         {
+                                          "cls": "android.widget.FrameLayout",
+                                          "bounds": "[882,719][1068,863]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.LinearLayout",
+                                            "bounds": "[882,719][1032,839]",
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.google.android.youtube:id/editor_tool_button_icon",
+                                              "cls": "android.widget.ImageButton",
+                                              "bounds": "[912,719][1032,839]",
+                                              "order": 2
+                                             },
+                                             {
+                                              "cls": "android.widget.FrameLayout",
+                                              "bounds": "[912,779][912,779]",
+                                              "visible": false,
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "id": "com.google.android.youtube:id/shorts_toolbar_duration_button",
+                                        "cls": "android.widget.Button",
+                                        "bounds": "[882,863][1068,1007]",
+                                        "clickable": true,
+                                        "order": 5,
+                                        "children": [
+                                         {
+                                          "cls": "android.widget.FrameLayout",
+                                          "bounds": "[882,863][1068,1007]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.LinearLayout",
+                                            "bounds": "[882,863][1032,983]",
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.google.android.youtube:id/shorts_toolbar_duration_button",
+                                              "cls": "android.widget.Button",
+                                              "desc": "x",
+                                              "bounds": "[912,863][1032,983]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.FrameLayout",
+                                                "bounds": "[912,863][1032,983]",
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "id": "com.google.android.youtube:id/duration_button_background",
+                                                  "cls": "android.widget.ImageView",
+                                                  "bounds": "[912,863][1032,983]",
+                                                  "visible": false,
+                                                  "order": 1
+                                                 },
+                                                 {
+                                                  "id": "com.google.android.youtube:id/duration_button_text",
+                                                  "cls": "android.widget.TextView",
+                                                  "text": "x",
+                                                  "bounds": "[932,894][1012,951]",
+                                                  "order": 2
+                                                 }
+                                                ]
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.widget.FrameLayout",
+                                              "bounds": "[912,923][912,923]",
+                                              "visible": false,
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "id": "com.google.android.youtube:id/effect_picker_entry_button",
+                                        "cls": "android.widget.Button",
+                                        "desc": "x",
+                                        "bounds": "[882,1007][1068,1151]",
+                                        "clickable": true,
+                                        "order": 7,
+                                        "children": [
+                                         {
+                                          "cls": "android.widget.FrameLayout",
+                                          "bounds": "[882,1007][1068,1151]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.LinearLayout",
+                                            "bounds": "[882,1007][1032,1127]",
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.google.android.youtube:id/editor_tool_button_icon",
+                                              "cls": "android.widget.ImageButton",
+                                              "bounds": "[912,1007][1032,1127]",
+                                              "order": 2
+                                             },
+                                             {
+                                              "cls": "android.widget.FrameLayout",
+                                              "bounds": "[912,1067][912,1067]",
+                                              "visible": false,
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "id": "com.google.android.youtube:id/shorts_speed_button",
+                                        "cls": "android.widget.Button",
+                                        "desc": "x",
+                                        "bounds": "[882,1151][1068,1295]",
+                                        "clickable": true,
+                                        "order": 9,
+                                        "children": [
+                                         {
+                                          "cls": "android.widget.FrameLayout",
+                                          "bounds": "[882,1151][1068,1295]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.LinearLayout",
+                                            "bounds": "[882,1151][1032,1271]",
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.google.android.youtube:id/editor_tool_button_icon",
+                                              "cls": "android.widget.ImageButton",
+                                              "bounds": "[912,1151][1032,1271]",
+                                              "order": 2
+                                             },
+                                             {
+                                              "cls": "android.widget.FrameLayout",
+                                              "bounds": "[912,1211][912,1211]",
+                                              "visible": false,
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "id": "com.google.android.youtube:id/shorts_camera_green_screen_button",
+                                        "cls": "android.widget.Button",
+                                        "desc": "x",
+                                        "bounds": "[882,1295][1068,1439]",
+                                        "clickable": true,
+                                        "order": 11,
+                                        "children": [
+                                         {
+                                          "cls": "android.widget.FrameLayout",
+                                          "bounds": "[882,1295][1068,1439]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.LinearLayout",
+                                            "bounds": "[882,1295][1032,1415]",
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.google.android.youtube:id/editor_tool_button_icon",
+                                              "cls": "android.widget.ImageButton",
+                                              "bounds": "[912,1295][1032,1415]",
+                                              "order": 2
+                                             },
+                                             {
+                                              "cls": "android.widget.FrameLayout",
+                                              "bounds": "[912,1355][912,1355]",
+                                              "visible": false,
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "id": "com.google.android.youtube:id/shorts_expandy_toolbar_more",
+                                        "cls": "android.widget.Button",
+                                        "desc": "x",
+                                        "bounds": "[882,1439][1068,1583]",
+                                        "clickable": true,
+                                        "order": 14,
+                                        "children": [
+                                         {
+                                          "cls": "android.widget.FrameLayout",
+                                          "bounds": "[882,1439][1068,1583]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.LinearLayout",
+                                            "bounds": "[882,1439][1032,1559]",
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.google.android.youtube:id/editor_tool_button_icon",
+                                              "cls": "android.widget.ImageButton",
+                                              "bounds": "[912,1439][1032,1559]",
+                                              "order": 2
+                                             },
+                                             {
+                                              "cls": "android.widget.FrameLayout",
+                                              "bounds": "[912,1499][912,1499]",
+                                              "visible": false,
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "id": "com.google.android.youtube:id/collapsed_toolbar_scrim",
+                                    "cls": "android.view.View",
+                                    "bounds": "[912,557][1032,1583]",
+                                    "order": 1
+                                   }
+                                  ]
+                                 }
+                                ]
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/reel_camera_bottom_bar",
+                                "cls": "android.widget.RelativeLayout",
+                                "bounds": "[0,110][1080,2030]",
+                                "order": 1,
+                                "children": [
+                                 {
+                                  "id": "com.google.android.youtube:id/above_record_button_container",
+                                  "cls": "android.widget.FrameLayout",
+                                  "bounds": "[0,1664][1080,1664]",
+                                  "visible": false,
+                                  "order": 1
+                                 },
+                                 {
+                                  "id": "com.google.android.youtube:id/reel_camera_gallery_button_delegate",
+                                  "cls": "android.widget.Button",
+                                  "desc": "x",
+                                  "bounds": "[0,1664][216,1928]",
+                                  "clickable": true,
+                                  "order": 2,
+                                  "children": [
+                                   {
+                                    "id": "com.google.android.youtube:id/reel_camera_gallery_button",
+                                    "cls": "android.widget.ImageView",
+                                    "bounds": "[48,1733][168,1853]",
+                                    "order": 1
+                                   },
+                                   {
+                                    "id": "com.google.android.youtube:id/reel_camera_gallery_button_label",
+                                    "cls": "android.widget.TextView",
+                                    "text": "x",
+                                    "bounds": "[70,1871][146,1928]",
+                                    "order": 2
+                                   }
+                                  ]
+                                 },
+                                 {
+                                  "id": "com.google.android.youtube:id/record_button_view_touch_area_space",
+                                  "cls": "android.view.View",
+                                  "bounds": "[384,1718][696,2030]",
+                                  "order": 5
+                                 }
+                                ]
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/shorts_camera_close_button",
+                                "cls": "android.widget.Button",
+                                "desc": "x",
+                                "bounds": "[12,188][204,362]",
+                                "clickable": true,
+                                "order": 3,
+                                "children": [
+                                 {
+                                  "cls": "android.widget.LinearLayout",
+                                  "bounds": "[48,218][168,338]",
+                                  "order": 1,
+                                  "children": [
+                                   {
+                                    "id": "com.google.android.youtube:id/editor_tool_button_icon",
+                                    "cls": "android.widget.ImageButton",
+                                    "bounds": "[48,218][168,338]",
+                                    "order": 1
+                                   }
+                                  ]
+                                 }
+                                ]
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/shorts_camera_top_tools_layout",
+                                "cls": "android.widget.LinearLayout",
+                                "bounds": "[349,110][731,338]",
+                                "order": 2,
+                                "children": [
+                                 {
+                                  "id": "com.google.android.youtube:id/shorts_camera_music_button_layout",
+                                  "cls": "android.widget.LinearLayout",
+                                  "bounds": "[349,110][731,338]",
+                                  "order": 1,
+                                  "children": [
+                                   {
+                                    "id": "com.google.android.youtube:id/shorts_camera_music_button",
+                                    "cls": "android.widget.Button",
+                                    "bounds": "[349,218][731,338]",
+                                    "clickable": true,
+                                    "order": 1,
+                                    "children": [
+                                     {
+                                      "id": "com.google.android.youtube:id/sound_button_leading_icon",
+                                      "cls": "android.widget.ImageView",
+                                      "bounds": "[385,242][457,314]",
+                                      "order": 1
+                                     },
+                                     {
+                                      "id": "com.google.android.youtube:id/sound_button_title",
+                                      "cls": "android.widget.TextView",
+                                      "text": "x",
+                                      "bounds": "[481,250][683,307]",
+                                      "selected": true,
+                                      "order": 4
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 }
+                                ]
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/shorts_camera_ai_playground_top_end_button",
+                                "cls": "android.widget.Button",
+                                "desc": "x",
+                                "bounds": "[858,188][1080,362]",
+                                "clickable": true,
+                                "order": 5,
+                                "children": [
+                                 {
+                                  "cls": "android.widget.LinearLayout",
+                                  "bounds": "[858,218][1080,338]",
+                                  "order": 1,
+                                  "children": [
+                                   {
+                                    "id": "com.google.android.youtube:id/editor_tool_button_icon",
+                                    "cls": "android.widget.ImageButton",
+                                    "bounds": "[909,218][1029,338]",
+                                    "order": 1
+                                   }
+                                  ]
+                                 }
+                                ]
+                               }
+                              ]
+                             },
+                             {
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[0,800][1080,1340]",
+                              "order": 3,
+                              "children": [
+                               {
+                                "id": "com.google.android.youtube:id/shorts_camera_canvas_accessibility_view",
+                                "cls": "android.view.View",
+                                "desc": "x",
+                                "bounds": "[270,800][810,1340]",
+                                "order": 1
+                               }
+                              ]
+                             }
+                            ]
+                           }
+                          ]
+                         }
+                        ]
+                       }
+                      ]
+                     },
+                     {
+                      "id": "com.google.android.youtube:id/creation_modes_bottom_bar",
+                      "cls": "android.widget.FrameLayout",
+                      "bounds": "[0,2101][1080,2281]",
+                      "order": 5,
+                      "children": [
+                       {
+                        "id": "com.google.android.youtube:id/bottom_bar_content_container",
+                        "cls": "android.widget.FrameLayout",
+                        "bounds": "[0,2101][1080,2281]",
+                        "order": 1,
+                        "children": [
+                         {
+                          "id": "com.google.android.youtube:id/creation_mode_switcher",
+                          "cls": "android.widget.FrameLayout",
+                          "bounds": "[0,2101][1080,2281]",
+                          "order": 1,
+                          "children": [
+                           {
+                            "id": "com.google.android.youtube:id/creation_mode_switcher_view",
+                            "cls": "android.support.v7.widget.RecyclerView",
+                            "bounds": "[0,2131][1080,2251]",
+                            "scrollable": true,
+                            "order": 1,
+                            "children": [
+                             {
+                              "id": "com.google.android.youtube:id/creation_modes_switcher_item",
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[236,2131][441,2251]",
+                              "order": 1,
+                              "children": [
+                               {
+                                "id": "com.google.android.youtube:id/creation_mode_button",
+                                "cls": "android.widget.Button",
+                                "desc": "x",
+                                "text": "x",
+                                "bounds": "[236,2131][441,2251]",
+                                "clickable": true,
+                                "order": 1
+                               }
+                              ]
+                             },
+                             {
+                              "id": "com.google.android.youtube:id/creation_modes_switcher_item",
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[441,2131][640,2251]",
+                              "order": 2,
+                              "children": [
+                               {
+                                "id": "com.google.android.youtube:id/creation_mode_button",
+                                "cls": "android.widget.Button",
+                                "desc": "x",
+                                "text": "x",
+                                "bounds": "[441,2131][640,2251]",
+                                "selected": true,
+                                "clickable": true,
+                                "order": 1
+                               }
+                              ]
+                             },
+                             {
+                              "id": "com.google.android.youtube:id/creation_modes_switcher_item",
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[640,2131][814,2251]",
+                              "order": 3,
+                              "children": [
+                               {
+                                "id": "com.google.android.youtube:id/creation_mode_button",
+                                "cls": "android.widget.Button",
+                                "desc": "x",
+                                "text": "x",
+                                "bounds": "[640,2131][814,2251]",
+                                "clickable": true,
+                                "order": 1
+                               }
+                              ]
+                             },
+                             {
+                              "id": "com.google.android.youtube:id/creation_modes_switcher_item",
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[814,2131][997,2251]",
+                              "order": 4,
+                              "children": [
+                               {
+                                "id": "com.google.android.youtube:id/creation_mode_button",
+                                "cls": "android.widget.Button",
+                                "desc": "x",
+                                "text": "x",
+                                "bounds": "[814,2131][997,2251]",
+                                "clickable": true,
+                                "order": 1
+                               }
+                              ]
+                             }
+                            ]
+                           },
+                           {
+                            "id": "com.google.android.youtube:id/creation_mode_highlight",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[440,2131][639,2251]",
+                            "order": 2
+                           }
+                          ]
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "android:id/statusBarBackground",
+    "cls": "android.view.View",
+    "bounds": "[0,0][1080,110]",
+    "visible": false,
+    "order": 3
+   },
+   {
+    "id": "android:id/navigationBarBackground",
+    "cls": "android.view.View",
+    "bounds": "[0,2352][1080,2400]",
+    "order": 2
+   }
+  ]
+ },
+ "extra": {
+  "windows": [
+   {
+    "id": 7105,
+    "type": 4,
+    "layer": 3,
+    "bounds": "[923,1595][1080,1704]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 7104,
+    "type": 4,
+    "layer": 2,
+    "bounds": "[919,1145][1080,1254]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 3125,
+    "type": 3,
+    "layer": 1,
+    "bounds": "[0,0][1080,110]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 7169,
+    "type": 1,
+    "layer": 0,
+    "bounds": "[0,0][1080,2400]",
+    "active": true,
+    "focused": true
+   }
+  ],
+  "navInsets": {
+   "l": 0,
+   "t": 0,
+   "r": 0,
+   "b": 48
+  }
+ }
+}

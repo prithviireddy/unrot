@@ -21,11 +21,22 @@ object Inspector {
 
     fun dir(ctx: Context) = File(ctx.filesDir, "dumps").apply { mkdirs() }
 
-    fun list(ctx: Context): List<File> = dir(ctx).listFiles { f -> f.extension == "json" }?.sortedByDescending { it.lastModified() } ?: emptyList()
+    /** The shareable dumps (json), newest first. */
+    fun list(ctx: Context): List<File> =
+        dir(ctx).listFiles { f -> f.extension == "json" }?.sortedByDescending { it.lastModified() } ?: emptyList()
 
+    /** Whether files/dumps holds any file, of any type (the list shows only the shareable ones). */
+    fun hasFiles(ctx: Context): Boolean = dir(ctx).listFiles()?.isNotEmpty() == true
+
+    /** Deletes everything in files/dumps, including files the list does not show. */
+    fun deleteAll(ctx: Context) {
+        dir(ctx).listFiles()?.forEach { it.delete() }
+    }
+
+    /** [extra] is merged into the top-level dump under "extra" (the service adds the window list, the navigation insets and the bar's layout here, see dumpExtra). */
     fun write(
         ctx: Context, pkg: String, versionCode: Long, versionName: String?, screenW: Int, screenH: Int,
-        root: NodeSnap, detection: Detection, rulesVersion: Int,
+        root: NodeSnap, detection: Detection, rulesVersion: Int, extra: JSONObject? = null,
     ): File {
         val ts = SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(Date())
         val json = JSONObject().apply {
@@ -42,6 +53,7 @@ object Inspector {
             })
             put("nodeCount", root.flatten().size)
             put("tree", root.toJson())
+            extra?.let { put("extra", it) }
         }
         val short = pkg.substringAfterLast('.')
         val f = File(dir(ctx), "dump-$short-$ts.json")

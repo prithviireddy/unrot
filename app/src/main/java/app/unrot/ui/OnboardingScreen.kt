@@ -33,6 +33,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.rememberCoroutineScope
+import app.unrot.data.Settings
+import kotlinx.coroutines.launch
 
 @Composable
 fun OnboardingScreen(status: SystemStatus, onDone: () -> Unit) {
@@ -69,13 +72,22 @@ private fun Disclosure(onAgree: () -> Unit) {
             Text("What Unrot does with it", fontWeight = FontWeight.SemiBold)
             Text("• Reads the screen only while Instagram or YouTube is open, to recognise Reels and Shorts.")
             Text("• Presses Back, taps the Home tab, or draws a patch over the Reels/Shorts button.")
+            Text("• " + BAR_PICTURES_DISCLOSURE)
             Text("What it never does", fontWeight = FontWeight.SemiBold)
-            Text("• It never reads other apps, your messages or your passwords.")
-            Text("• It never stores or sends screen content anywhere. Everything stays on your phone.")
+            Text(
+                "• It never keeps or analyses content from other apps. Apart from the bar's tab pictures described above " +
+                    "(and screen dumps you save yourself in developer mode), it never stores screen content, and it never " +
+                    "sends your messages, passwords or any screen content anywhere.",
+            )
             Text("• It has no account, ads or analytics.")
         }
     }
-    Button(onClick = onAgree, modifier = Modifier.fillMaxWidth()) { Text("I agree, continue") }
+    val ctx = LocalContext.current
+    val scope = rememberCoroutineScope()
+    Button(onClick = {
+        // Move on only after the write, so leaving this step can't cancel it.
+        scope.launch { Settings.setDisclosureVersion(ctx, DISCLOSURE_VERSION); onAgree() }
+    }, modifier = Modifier.fillMaxWidth()) { Text("I agree, continue") }
 }
 
 @Composable

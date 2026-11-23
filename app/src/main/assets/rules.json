@@ -1,30 +1,14 @@
 {
-  "schema": 1,
-  "version": 1,
-  "_note": "Starter rules, NOT yet verified on a device. Tune with Inspector dumps, bump 'version', publish this file.",
+  "schema": 2,
+  "version": 3,
+  "_note": "Schema 2: the bottom tab bar is a kind 'bar' target (mode rebuild or patch; see rules/Bar.kt). Tab shapes come from the S1 dumps (Instagram tab_bar with view ids, YouTube bottom_bar_container with description-only tabs). A hide cond without a container patches only when it names a viewId (exact); a description alone never does. mode patch is the first response to a bad bar. Tune with Inspector dumps, bump 'version', publish this file.",
   "apps": {
     "com.instagram.android": [
       {
         "minVersionCode": 0,
         "maxVersionCode": null,
         "targets": [
-          {
-            "id": "ig_reels_tab_cover",
-            "kind": "cover",
-            "feature": "reels",
-            "coverLight": "#FFFFFF",
-            "coverDark": "#000000",
-            "any": [
-              {
-                "viewId": "clips_tab"
-              },
-              {
-                "desc": "Reels",
-                "className": "FrameLayout",
-                "maxTopFrac": 1.0
-              }
-            ]
-          },
+          {"id":"ig_bar","kind":"bar","feature":"reels","mode":"rebuild","bar":[{"viewId":"tab_bar"}],"hide":[{"viewId":"clips_tab"},{"desc":"Reels"}],"minTabs":4,"maxTabs":6,"coverLight":"#FFFFFF","coverDark":"#0C1014"},
           {
             "id": "ig_reels_tab",
             "kind": "block",
@@ -52,11 +36,13 @@
             "any": [
               {
                 "viewId": "clips_viewer_view_pager",
-                "minHeightFrac": 0.5
+                "minHeightFrac": 0.5,
+                "minWidthFrac": 0.9
               },
               {
                 "viewIdRegex": "clips_viewer.*(pager|container)",
-                "minHeightFrac": 0.5
+                "minHeightFrac": 0.5,
+                "minWidthFrac": 0.9
               }
             ]
           },
@@ -105,22 +91,7 @@
         "minVersionCode": 0,
         "maxVersionCode": null,
         "targets": [
-          {
-            "id": "yt_shorts_tab_cover",
-            "kind": "cover",
-            "feature": "shorts",
-            "coverLight": "#FFFFFF",
-            "coverDark": "#0F0F0F",
-            "any": [
-              {
-                "desc": "Shorts"
-              },
-              {
-                "text": "Shorts",
-                "className": "TextView"
-              }
-            ]
-          },
+          {"id":"yt_bar","kind":"bar","feature":"shorts","mode":"rebuild","bar":[{"viewId":"bottom_bar_container"}],"hide":[{"desc":"Shorts"}],"noSelect":[{"desc":"Create"}],"minTabs":4,"maxTabs":6,"coverLight":"#FFFFFF","coverDark":"#0F0F0F"},
           {
             "id": "yt_shorts_player",
             "kind": "block",
