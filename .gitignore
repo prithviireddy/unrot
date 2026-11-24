@@ -11,3 +11,6 @@ captures/
 # Inspector dumps can contain private on-screen text
 dump-*.json
 dumps.tar
+
+# Built APKs for testers
+dist/
