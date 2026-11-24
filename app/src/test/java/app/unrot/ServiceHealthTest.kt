@@ -6,6 +6,7 @@ import app.unrot.service.KILL_NOTICE_GAP_MS
 import app.unrot.service.RESUME_GRACE_MS
 import app.unrot.service.blockingOn
 import app.unrot.service.foregroundWanted
+import app.unrot.service.fgsRetryDue
 import app.unrot.service.fgsTransition
 import app.unrot.service.killCardVisible
 import app.unrot.service.killNoticeDue
@@ -31,6 +32,33 @@ class ServiceHealthTest {
     @Test fun noChangeDoesNothing() {
         assertEquals(FgsAction.NONE, fgsTransition(prevOn = true, nowOn = true))
         assertEquals(FgsAction.NONE, fgsTransition(prevOn = false, nowOn = false))
+    }
+
+    // ---- fgsRetryDue (decision 0012) ----
+
+    @Test fun retryNotDueWhenNotWanted() {
+        assertFalse(fgsRetryDue(wanted = false, running = false, nowMs = 100_000, lastAtMs = 0))
+    }
+
+    @Test fun retryNotDueWhenAlreadyRunning() {
+        assertFalse(fgsRetryDue(wanted = true, running = true, nowMs = 100_000, lastAtMs = 0))
+    }
+
+    @Test fun retryNotDueTooSoon() {
+        assertFalse(fgsRetryDue(wanted = true, running = false, nowMs = 1_000 + 59_999, lastAtMs = 1_000))
+    }
+
+    @Test fun retryDueAtExactlyOneMinute() {
+        assertTrue(fgsRetryDue(wanted = true, running = false, nowMs = 1_000 + 60_000, lastAtMs = 1_000))
+    }
+
+    @Test fun firstRetryDueEvenInTheFirstMinuteAfterBoot() {
+        // BlockerService starts lastFgsRetryAt at -60 s, so uptime under a minute doesn't hold the first retry back.
+        assertTrue(fgsRetryDue(wanted = true, running = false, nowMs = 1_000, lastAtMs = -60_000))
+    }
+
+    @Test fun retryDueAfterOneMinute() {
+        assertTrue(fgsRetryDue(wanted = true, running = false, nowMs = 1_000 + 300_000, lastAtMs = 1_000))
     }
 
     // ---- foregroundWanted and blockingOn ----

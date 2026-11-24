@@ -198,9 +198,11 @@ class BlockerService : AccessibilityService() {
     private var mismatches = 0
     private var unknowns = 0
     private var receiversOn = false
-    /** Main. The foreground notification: the features' last value, whether it is on, and the permission last seen (decision 0011). */
+    /** Main. The foreground notification: the features' last value, whether it is on, and the permission last seen (decisions 0011, 0012). */
     private var fgsWanted = false
     private var fgsRunning = false
+    /** Main. When the last retry of a failed foreground start was made (elapsed ms), see [fgsRetryDue]. */
+    private var lastFgsRetryAt = -60_000L // so the first retry is allowed even in the first minute after boot
     private var notifGranted: Boolean? = null
     /** Main. The blocking value last written to the service record, and the elapsed ms of the last heartbeat. */
     private var blockingWritten: Boolean? = null
@@ -267,7 +269,16 @@ class BlockerService : AccessibilityService() {
                     lastHeartbeatAt = SystemClock.elapsedRealtime()
                     hideBar(keepRebuilt = true) // nothing to show until the screen is back
                 }
-                else -> scheduleEval(STATE_DELAY_MS) // screen on / unlocked
+                else -> { // screen on / unlocked
+                    // A failed foreground start is retried here, at most once a minute (decision 0012). A swipe never clears
+                    // fgsRunning, so this never re-posts a swiped notification.
+                    val now = SystemClock.elapsedRealtime()
+                    if (fgsRetryDue(fgsWanted, fgsRunning, now, lastFgsRetryAt)) {
+                        lastFgsRetryAt = now
+                        startKeepAlive()
+                    }
+                    scheduleEval(STATE_DELAY_MS)
+                }
             }
         }
     }
@@ -420,8 +431,8 @@ class BlockerService : AccessibilityService() {
     }
 
     /**
-     * Main. The foreground notification follows the features (see [fgsTransition]), and the blocking record follows
-     * [blockingOn]: on the first emission and whenever it changes. Nothing else in the settings touches either.
+     * Main. The foreground notification follows the features (see [fgsTransition]; on in every build, decision 0012), and the
+     * blocking record follows [blockingOn]: on the first emission and whenever it changes. Nothing else in the settings touches either.
      */
     private fun keepAlive(s: Settings) {
         val blocking = blockingOn(s.onboarded, s.instagramEnabled, s.youtubeEnabled)
@@ -432,7 +443,6 @@ class BlockerService : AccessibilityService() {
         val wanted = foregroundWanted(s.instagramEnabled, s.youtubeEnabled)
         val action = fgsTransition(fgsWanted, wanted)
         fgsWanted = wanted
-        if (!BuildConfig.KEEP_ALIVE_FGS) return
         when (action) {
             FgsAction.START -> startKeepAlive()
             FgsAction.STOP -> stopKeepAlive()

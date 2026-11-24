@@ -1,7 +1,6 @@
 package app.unrot.service
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -20,7 +19,7 @@ import app.unrot.ui.MainActivity
 
 /** The app's notifications. Channels are created right before each post (creating one again is harmless). */
 object Notices {
-    /** The foreground notification (decision 0011, builds with `-PkeepAliveFgs`). Low importance, silent. */
+    /** The foreground notification (decisions 0011 and 0012, in every build). Low importance, silent. */
     const val CHANNEL_BLOCKING = "blocking_status"
     /** Watchdog and kill notices. */
     const val CHANNEL_SERVICE = "service_status"
@@ -63,12 +62,9 @@ object Notices {
     }
 
     /**
-     * Starts the service in the foreground with the notification. [ServiceCompat] passes the special-use type on API 34+
-     * (the keepAliveFgs manifest declares it). Failures are logged by the caller; blocking goes on without it.
+     * Starts the service in the foreground with the notification (decision 0012). [ServiceCompat] passes the special-use type
+     * on API 34+; the main manifest declares it in every build. Failures are logged by the caller; blocking goes on without it.
      */
-    // Lint can't see the flag: the call is made only when BuildConfig.KEEP_ALIVE_FGS is on, and only that build's manifest
-    // declares the service type.
-    @SuppressLint("ForegroundServiceType")
     fun startForeground(service: android.app.Service) {
         val type = if (Build.VERSION.SDK_INT >= 34) ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE else 0
         ServiceCompat.startForeground(service, ID_FOREGROUND, foreground(service), type)
