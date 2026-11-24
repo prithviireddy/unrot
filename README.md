@@ -1,6 +1,35 @@
 # Unrot
 
-Android app that blocks Instagram Reels and YouTube Shorts with an AccessibilityService. Private repo.
+Unrot is an Android app that blocks **Instagram Reels** and **YouTube Shorts**, so you can keep using DMs, stories, search and normal videos without getting pulled into the feed.
+
+> **Status: early tester build (0.1.0).** It has been tested on Realme phones running Android 13 and 15. Other phones may need fixes, and a new Instagram or YouTube version can break blocking until an update.
+
+## What it does
+- **Removes the tab.** It redraws the bottom bar without the Reels or Shorts tab, in the app's own colours.
+- **Closes reels fast.** A reel or Short opened from anywhere else (search, Explore, a link) closes within about a second.
+- **Lets one DM reel play.** Someone sent it to you; swiping to the next one is blocked.
+- **Ends the Instagram feed** at "You're all caught up".
+- **Makes turning it off take 30 seconds.** Turning it back on is instant.
+- **Notices when your phone stops it.** It keeps a small, silent "Unrot is blocking" notification while it runs, and tells you if it gets stopped, with a guide for your phone.
+
+## Privacy
+- **Reads only Instagram and YouTube screens.** Unrot uses Android's Accessibility service, and only on those two apps.
+- **Nothing leaves your phone.** There's no account, no analytics and no server.
+- **Tab pictures stay on the phone.** The pictures it uses to redraw the bar are saved in its private storage. You can delete them from the home screen.
+
+## Install
+1. **Download** `unrot-0.1.0.apk` from [Releases](https://github.com/prithviireddy/unrot/releases) and open it. Allow "Install unknown apps" for the app you opened it from.
+2. **Set it up.** Open Unrot and follow its setup.
+3. **Android 13 and later:** if the Accessibility switch is greyed out, go to App info › ⋮ › **Allow restricted settings**, then turn on Unrot in Accessibility.
+4. **Battery:** set Unrot's battery use to **unrestricted**. On Realme, Oppo and OnePlus, also allow **auto launch**, or the phone may close Unrot.
+
+It works on Android 8 and later. The redrawn bar needs Android 11 or later. Older versions get a plain cover over the tab instead.
+
+## Feedback
+Found a reel that wasn't blocked, or something that broke? [Open an issue](https://github.com/prithviireddy/unrot/issues) with your phone model, Android version, and the Instagram or YouTube version.
+
+## License
+No license has been chosen yet, so for now all rights are reserved. A license will be added before any F-Droid release.
 
 ## Docs
 - [Decisions](docs/decisions/README.md): why it works this way
