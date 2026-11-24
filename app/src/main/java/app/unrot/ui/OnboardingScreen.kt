@@ -34,7 +34,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.rememberCoroutineScope
-import app.unrot.BuildConfig
 import app.unrot.data.Settings
 import kotlinx.coroutines.launch
 
@@ -141,11 +140,11 @@ private fun BatteryStep(status: SystemStatus, onNext: () -> Unit) {
 private fun NotificationStep(onDone: () -> Unit) {
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { onDone() }
     Title("Know if it stops")
-    if (BuildConfig.KEEP_ALIVE_FGS) {
-        Body("Unrot can notify you if Android stops it, and shows a small \"Unrot is blocking\" notification while it runs.")
-    } else {
-        Body("If Android switches Unrot off, it can send you a notification so you can turn it back on. Nothing else gets a notification.")
-    }
+    Body(
+        "While Reels or Shorts blocking is on, Unrot runs in the foreground, which helps stop your phone from closing it. " +
+            "Android shows this as a small, silent \"Unrot is blocking\" notification. Allow notifications so you can see it, " +
+            "and so Unrot can tell you if Android stops it.",
+    )
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         Button(onClick = {
             if (Build.VERSION.SDK_INT >= 33) launcher.launch(Manifest.permission.POST_NOTIFICATIONS) else onDone()

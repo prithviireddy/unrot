@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <!-- WorkManager's library declares this; Unrot never runs foreground work through it. Only the keep-alive test build (the
-         app/src/keepAliveFgs manifest, built with -PkeepAliveFgs, decision 0011) keeps it. -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" tools:node="remove" />
+    <!-- The keep-alive notification runs in every build (decision 0012). -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <!-- Needed on Android 11+ to read the installed version of the target apps (per-version rules). -->
     <queries>
@@ -37,6 +36,7 @@
             android:name=".service.BlockerService"
             android:exported="false"
             android:label="@string/service_label"
+            android:foregroundServiceType="specialUse"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -44,6 +44,9 @@
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Blocks Instagram Reels and YouTube Shorts while the user has blocking turned on; if interrupted, reels play again." />
         </service>
 
         <provider

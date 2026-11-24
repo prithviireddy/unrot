@@ -15,4 +15,5 @@ Add new ones with the `record-decision` skill. Don't edit an accepted record to 
 | [0008](0008-redraw-bottom-bar-sampled-colour.md) | Redraw the bottom bar without Reels/Shorts, in the sampled colour; redraw on Android 11+, patch below | Accepted |
 | [0009](0009-save-bar-pictures-on-phone.md) | Save the bar's tab pictures on the phone; no timed refresh | Accepted |
 | [0010](0010-provisional-bar-swallows-taps.md) | The provisional bar after an in-app return ignores taps until confirmed | Accepted |
-| [0011](0011-keep-alive-notification.md) | A quiet always-on notification and an auto-launch guide against phone cleaners | Accepted |
+| [0011](0011-keep-alive-notification.md) | A quiet always-on notification and an auto-launch guide against phone cleaners | Accepted, amended by 0012 |
+| [0012](0012-keep-alive-on-by-default.md) | The keep-alive notification is on in every build | Accepted |

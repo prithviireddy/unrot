@@ -1,8 +1,8 @@
 package app.unrot.service
 
 /*
- * Pure rules for keeping the service alive and telling the user when it stopped (decision 0011, plan 0011 steps 1, 3 and 2's
- * display rules). The shell gathers the facts and applies the answers.
+ * Pure rules for keeping the service alive and telling the user when it stopped (decisions 0011 and 0012, plan 0011 steps 1, 3
+ * and 2's display rules, plan 0013 step 3). The shell gathers the facts and applies the answers.
  */
 
 /** What the foreground notification must do after a settings change. */
@@ -17,6 +17,13 @@ fun fgsTransition(prevOn: Boolean, nowOn: Boolean): FgsAction = when {
     prevOn && !nowOn -> FgsAction.STOP
     else -> FgsAction.NONE
 }
+
+/**
+ * Whether a failed foreground start is retried now: the features want it, it is not running, and at least a minute has passed
+ * since the last retry ([lastAtMs]). Decision 0012.
+ */
+fun fgsRetryDue(wanted: Boolean, running: Boolean, nowMs: Long, lastAtMs: Long): Boolean =
+    wanted && !running && nowMs - lastAtMs >= 60_000L
 
 /** The foreground notification's features: Instagram or YouTube blocking (caught-up alone does not count). */
 fun foregroundWanted(instagramEnabled: Boolean, youtubeEnabled: Boolean): Boolean = instagramEnabled || youtubeEnabled
