@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 12+ cloud backup and device transfer. The bar's saved pictures, Inspector dumps and the service's run record (service_state)
+     stay on this phone: a restored run record would show a false kill card. -->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="file" path="bar-cache/" />
+        <exclude domain="file" path="dumps/" />
+        <exclude domain="sharedpref" path="service_state.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="file" path="bar-cache/" />
+        <exclude domain="file" path="dumps/" />
+        <exclude domain="sharedpref" path="service_state.xml" />
+    </device-transfer>
+</data-extraction-rules>

@@ -1,0 +1,1321 @@
+{
+ "package": "com.google.android.youtube",
+ "versionCode": 1561310996,
+ "versionName": "21.45.82",
+ "screen": {
+  "w": 1080,
+  "h": 2400
+ },
+ "rulesVersion": 1,
+ "matched": {
+  "blocks": [],
+  "markers": [],
+  "covers": [
+   "yt_shorts_tab_cover"
+  ]
+ },
+ "nodeCount": 176,
+ "tree": {
+  "cls": "android.widget.FrameLayout",
+  "bounds": "[0,0][1080,2400]",
+  "order": 0,
+  "win": 7164,
+  "children": [
+   {
+    "cls": "android.widget.LinearLayout",
+    "bounds": "[0,0][1080,2400]",
+    "order": 1,
+    "children": [
+     {
+      "cls": "android.widget.FrameLayout",
+      "bounds": "[0,0][1080,2400]",
+      "order": 2,
+      "children": [
+       {
+        "id": "com.google.android.youtube:id/action_bar_root",
+        "cls": "android.widget.LinearLayout",
+        "bounds": "[0,0][1080,2400]",
+        "order": 1,
+        "children": [
+         {
+          "id": "android:id/content",
+          "cls": "android.widget.FrameLayout",
+          "bounds": "[0,0][1080,2400]",
+          "order": 2,
+          "children": [
+           {
+            "id": "com.google.android.youtube:id/more_drawer_container",
+            "cls": "androidx.drawerlayout.widget.DrawerLayout",
+            "bounds": "[0,0][1080,2400]",
+            "order": 1,
+            "children": [
+             {
+              "id": "com.google.android.youtube:id/slim_status_bar_player_container",
+              "cls": "android.widget.FrameLayout",
+              "bounds": "[0,0][1080,2400]",
+              "order": 1,
+              "children": [
+               {
+                "id": "com.google.android.youtube:id/navigation_bar_divider_frame",
+                "cls": "android.view.ViewGroup",
+                "bounds": "[0,0][1080,2352]",
+                "order": 1,
+                "children": [
+                 {
+                  "id": "com.google.android.youtube:id/global_slim_status_bar_container",
+                  "cls": "android.widget.FrameLayout",
+                  "bounds": "[0,0][1080,2352]",
+                  "order": 2
+                 },
+                 {
+                  "id": "com.google.android.youtube:id/accessibility_layer_container",
+                  "cls": "android.widget.FrameLayout",
+                  "bounds": "[0,0][1080,2352]",
+                  "order": 1,
+                  "children": [
+                   {
+                    "id": "com.google.android.youtube:id/fullscreen_mode_container",
+                    "cls": "android.widget.FrameLayout",
+                    "bounds": "[0,0][1080,0]",
+                    "visible": false,
+                    "order": 2
+                   },
+                   {
+                    "id": "com.google.android.youtube:id/next_gen_watch_container_layout",
+                    "cls": "android.view.ViewGroup",
+                    "bounds": "[0,0][1080,2352]",
+                    "order": 1,
+                    "children": [
+                     {
+                      "id": "com.google.android.youtube:id/watch_while_layout_coordinator_layout",
+                      "cls": "android.view.ViewGroup",
+                      "bounds": "[0,0][1080,2352]",
+                      "order": 1,
+                      "children": [
+                       {
+                        "id": "com.google.android.youtube:id/fab_container",
+                        "cls": "android.widget.FrameLayout",
+                        "bounds": "[0,0][1080,2352]",
+                        "order": 4
+                       },
+                       {
+                        "id": "com.google.android.youtube:id/pane_fragment_container",
+                        "cls": "android.widget.FrameLayout",
+                        "bounds": "[0,0][1080,2352]",
+                        "order": 1,
+                        "children": [
+                         {
+                          "id": "com.google.android.youtube:id/browse_fragment_layout_coordinator_layout",
+                          "cls": "android.view.ViewGroup",
+                          "bounds": "[0,0][1080,2208]",
+                          "order": 3,
+                          "children": [
+                           {
+                            "id": "com.google.android.youtube:id/pane_fragment_background_container",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[0,0][1080,2208]",
+                            "order": 1,
+                            "children": [
+                             {
+                              "id": "com.google.android.youtube:id/pane_fragment_background_alpha_overlay",
+                              "cls": "android.view.View",
+                              "bounds": "[0,0][1080,2208]",
+                              "visible": false,
+                              "order": 2
+                             },
+                             {
+                              "cls": "android.view.ViewGroup",
+                              "bounds": "[0,0][1080,2208]",
+                              "order": 1
+                             }
+                            ]
+                           },
+                           {
+                            "id": "com.google.android.youtube:id/appbar_layout",
+                            "cls": "android.widget.LinearLayout",
+                            "bounds": "[0,0][1080,710]",
+                            "order": 2,
+                            "children": [
+                             {
+                              "id": "com.google.android.youtube:id/toolbar_container",
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[0,0][1080,710]",
+                              "order": 1,
+                              "children": [
+                               {
+                                "id": "com.google.android.youtube:id/collapsing_header_container",
+                                "cls": "android.widget.FrameLayout",
+                                "bounds": "[0,0][1080,710]",
+                                "order": 1,
+                                "children": [
+                                 {
+                                  "cls": "android.view.ViewGroup",
+                                  "bounds": "[0,254][1080,710]",
+                                  "order": 1,
+                                  "children": [
+                                   {
+                                    "cls": "android.widget.Button",
+                                    "bounds": "[48,302][264,518]",
+                                    "clickable": true,
+                                    "order": 1,
+                                    "children": [
+                                     {
+                                      "cls": "android.widget.ImageView",
+                                      "desc": "x",
+                                      "bounds": "[48,302][264,518]",
+                                      "order": 1
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "desc": "x",
+                                    "bounds": "[312,326][1032,416]",
+                                    "clickable": true,
+                                    "order": 2
+                                   },
+                                   {
+                                    "cls": "android.widget.Button",
+                                    "bounds": "[312,428][1008,476]",
+                                    "clickable": true,
+                                    "order": 3,
+                                    "children": [
+                                     {
+                                      "cls": "android.view.ViewGroup",
+                                      "desc": "x",
+                                      "text": "x",
+                                      "bounds": "[312,428][631,476]",
+                                      "order": 1
+                                     },
+                                     {
+                                      "cls": "android.view.ViewGroup",
+                                      "desc": "x",
+                                      "text": "x",
+                                      "bounds": "[631,452][631,452]",
+                                      "visible": false,
+                                      "order": 2
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "bounds": "[0,536][1080,680]",
+                                    "order": 4,
+                                    "children": [
+                                     {
+                                      "cls": "android.view.ViewGroup",
+                                      "bounds": "[48,536][1032,536]",
+                                      "visible": false,
+                                      "order": 1
+                                     },
+                                     {
+                                      "cls": "android.view.ViewGroup",
+                                      "bounds": "[48,536][1032,680]",
+                                      "order": 2,
+                                      "children": [
+                                       {
+                                        "cls": "android.widget.Button",
+                                        "desc": "x",
+                                        "bounds": "[48,548][528,668]",
+                                        "clickable": true,
+                                        "order": 1,
+                                        "children": [
+                                         {
+                                          "cls": "android.view.View",
+                                          "bounds": "[48,548][528,668]",
+                                          "order": 1
+                                         },
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "desc": "x",
+                                          "text": "x",
+                                          "bounds": "[163,581][413,635]",
+                                          "order": 2
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "cls": "android.widget.Button",
+                                        "desc": "x",
+                                        "bounds": "[552,548][1032,668]",
+                                        "clickable": true,
+                                        "order": 2,
+                                        "children": [
+                                         {
+                                          "cls": "android.view.View",
+                                          "bounds": "[552,548][1032,668]",
+                                          "order": 1
+                                         },
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "desc": "x",
+                                          "text": "x",
+                                          "bounds": "[667,581][916,635]",
+                                          "order": 2
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 }
+                                ]
+                               },
+                               {
+                                "id": "com.google.android.youtube:id/toolbar",
+                                "cls": "android.view.ViewGroup",
+                                "bounds": "[0,110][1080,254]",
+                                "order": 2,
+                                "children": [
+                                 {
+                                  "id": "com.google.android.youtube:id/leading_accessories_container",
+                                  "cls": "android.widget.LinearLayout",
+                                  "bounds": "[0,110][406,254]",
+                                  "order": 1,
+                                  "children": [
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "bounds": "[36,122][406,242]",
+                                    "order": 1,
+                                    "children": [
+                                     {
+                                      "cls": "android.widget.Button",
+                                      "desc": "x",
+                                      "bounds": "[36,122][406,242]",
+                                      "clickable": true,
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "cls": "android.view.View",
+                                        "bounds": "[36,122][406,242]",
+                                        "order": 1
+                                       },
+                                       {
+                                        "cls": "android.view.ViewGroup",
+                                        "desc": "x",
+                                        "text": "x",
+                                        "bounds": "[87,155][265,209]",
+                                        "order": 2
+                                       },
+                                       {
+                                        "cls": "android.widget.ImageView",
+                                        "bounds": "[283,146][355,218]",
+                                        "order": 3
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 },
+                                 {
+                                  "cls": "android.support.v7.widget.LinearLayoutCompat",
+                                  "bounds": "[648,110][1080,254]",
+                                  "order": 2,
+                                  "children": [
+                                   {
+                                    "id": "com.google.android.youtube:id/menu_item_0",
+                                    "cls": "android.widget.FrameLayout",
+                                    "bounds": "[648,110][792,254]",
+                                    "order": 1,
+                                    "children": [
+                                     {
+                                      "cls": "android.view.ViewGroup",
+                                      "bounds": "[648,110][792,254]",
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/menu_item_view",
+                                        "cls": "android.widget.ImageView",
+                                        "desc": "x",
+                                        "bounds": "[648,110][792,254]",
+                                        "clickable": true,
+                                        "order": 3
+                                       },
+                                       {
+                                        "id": "com.google.android.youtube:id/new_content_count",
+                                        "cls": "android.widget.TextView",
+                                        "text": "x",
+                                        "bounds": "[714,140][784,200]",
+                                        "order": 5
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "id": "com.google.android.youtube:id/menu_item_1",
+                                    "cls": "android.widget.FrameLayout",
+                                    "bounds": "[792,110][936,254]",
+                                    "order": 2,
+                                    "children": [
+                                     {
+                                      "cls": "android.view.ViewGroup",
+                                      "bounds": "[792,110][936,254]",
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/menu_item_view",
+                                        "cls": "android.widget.ImageView",
+                                        "desc": "x",
+                                        "bounds": "[792,110][936,254]",
+                                        "clickable": true,
+                                        "order": 3
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "id": "com.google.android.youtube:id/menu_item_2",
+                                    "cls": "android.widget.FrameLayout",
+                                    "bounds": "[936,110][1080,254]",
+                                    "order": 3,
+                                    "children": [
+                                     {
+                                      "cls": "android.view.ViewGroup",
+                                      "bounds": "[936,110][1080,254]",
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "id": "com.google.android.youtube:id/menu_item_view",
+                                        "cls": "android.widget.ImageView",
+                                        "desc": "x",
+                                        "bounds": "[936,110][1080,254]",
+                                        "clickable": true,
+                                        "order": 3
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 }
+                                ]
+                               }
+                              ]
+                             }
+                            ]
+                           },
+                           {
+                            "id": "com.google.android.youtube:id/pane_fragment_contents",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[0,710][1080,2208]",
+                            "order": 3,
+                            "children": [
+                             {
+                              "id": "com.google.android.youtube:id/loading_layout",
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[0,710][1080,2208]",
+                              "order": 1,
+                              "children": [
+                               {
+                                "cls": "android.view.ViewGroup",
+                                "bounds": "[0,710][1080,2208]",
+                                "order": 2,
+                                "children": [
+                                 {
+                                  "id": "com.google.android.youtube:id/results",
+                                  "cls": "android.support.v7.widget.RecyclerView",
+                                  "bounds": "[0,710][1080,2208]",
+                                  "scrollable": true,
+                                  "order": 1,
+                                  "children": [
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "bounds": "[0,710][1080,1355]",
+                                    "order": 1,
+                                    "children": [
+                                     {
+                                      "cls": "android.widget.Button",
+                                      "desc": "x",
+                                      "bounds": "[0,710][1080,854]",
+                                      "clickable": true,
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "cls": "android.widget.Button",
+                                        "bounds": "[48,746][295,818]",
+                                        "order": 1,
+                                        "children": [
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "desc": "x",
+                                          "text": "x",
+                                          "bounds": "[48,749][223,815]",
+                                          "order": 1
+                                         },
+                                         {
+                                          "cls": "android.widget.ImageView",
+                                          "bounds": "[223,746][295,818]",
+                                          "order": 2
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     },
+                                     {
+                                      "cls": "android.view.ViewGroup",
+                                      "bounds": "[0,854][1080,1355]",
+                                      "order": 2,
+                                      "children": [
+                                       {
+                                        "cls": "android.support.v7.widget.RecyclerView",
+                                        "bounds": "[0,854][1080,1355]",
+                                        "scrollable": true,
+                                        "order": 1,
+                                        "children": [
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[24,854][504,1355]",
+                                          "order": 3,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.Button",
+                                            "desc": "x",
+                                            "bounds": "[24,854][504,1355]",
+                                            "clickable": true,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[48,869][480,1112]",
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.ImageView",
+                                                "bounds": "[48,869][480,1112]",
+                                                "order": 1
+                                               },
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "desc": "x",
+                                                "bounds": "[336,1034][462,1094]",
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.ViewGroup",
+                                                  "desc": "x",
+                                                  "text": "x",
+                                                  "bounds": "[354,1043][444,1085]",
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.ImageView",
+                                                "bounds": "[48,1103][144,1112]",
+                                                "order": 3
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[84,905][444,905]",
+                                              "visible": false,
+                                              "order": 3
+                                             },
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[48,1136][495,1304]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[48,1136][429,1304]",
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.ViewGroup",
+                                                  "bounds": "[48,1136][429,1304]",
+                                                  "order": 1,
+                                                  "children": [
+                                                   {
+                                                    "cls": "android.view.ViewGroup",
+                                                    "bounds": "[48,1136][429,1244]",
+                                                    "order": 1,
+                                                    "children": [
+                                                     {
+                                                      "cls": "android.view.ViewGroup",
+                                                      "desc": "x",
+                                                      "text": "x",
+                                                      "bounds": "[48,1136][393,1244]",
+                                                      "order": 1
+                                                     }
+                                                    ]
+                                                   },
+                                                   {
+                                                    "cls": "android.view.ViewGroup",
+                                                    "bounds": "[48,1244][330,1304]",
+                                                    "order": 2,
+                                                    "children": [
+                                                     {
+                                                      "cls": "android.view.ViewGroup",
+                                                      "desc": "x",
+                                                      "text": "x",
+                                                      "bounds": "[48,1256][330,1304]",
+                                                      "order": 1
+                                                     }
+                                                    ]
+                                                   }
+                                                  ]
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "desc": "x",
+                                                "bounds": "[441,1136][495,1190]",
+                                                "clickable": true,
+                                                "order": 2
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         },
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[504,854][984,1355]",
+                                          "order": 2,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.Button",
+                                            "desc": "x",
+                                            "bounds": "[504,854][984,1355]",
+                                            "clickable": true,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[528,869][960,1112]",
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.ImageView",
+                                                "bounds": "[528,869][960,1112]",
+                                                "order": 1
+                                               },
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "desc": "x",
+                                                "bounds": "[786,1034][942,1094]",
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.ViewGroup",
+                                                  "desc": "x",
+                                                  "text": "x",
+                                                  "bounds": "[804,1043][924,1085]",
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.ImageView",
+                                                "bounds": "[528,1103][960,1112]",
+                                                "order": 3
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[564,905][924,905]",
+                                              "visible": false,
+                                              "order": 3
+                                             },
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[528,1136][975,1304]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[528,1136][909,1304]",
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.ViewGroup",
+                                                  "bounds": "[528,1136][909,1304]",
+                                                  "order": 1,
+                                                  "children": [
+                                                   {
+                                                    "cls": "android.view.ViewGroup",
+                                                    "bounds": "[528,1136][909,1244]",
+                                                    "order": 1,
+                                                    "children": [
+                                                     {
+                                                      "cls": "android.view.ViewGroup",
+                                                      "desc": "x",
+                                                      "text": "x",
+                                                      "bounds": "[528,1136][873,1244]",
+                                                      "order": 1
+                                                     }
+                                                    ]
+                                                   },
+                                                   {
+                                                    "cls": "android.view.ViewGroup",
+                                                    "bounds": "[528,1244][846,1304]",
+                                                    "order": 2,
+                                                    "children": [
+                                                     {
+                                                      "cls": "android.view.ViewGroup",
+                                                      "desc": "x",
+                                                      "text": "x",
+                                                      "bounds": "[528,1256][846,1304]",
+                                                      "order": 1
+                                                     }
+                                                    ]
+                                                   }
+                                                  ]
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "desc": "x",
+                                                "bounds": "[921,1136][975,1190]",
+                                                "clickable": true,
+                                                "order": 2
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         },
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[984,854][1080,1355]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.Button",
+                                            "desc": "x",
+                                            "bounds": "[984,854][1080,1355]",
+                                            "clickable": true,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[1008,869][1080,1112]",
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.ImageView",
+                                                "bounds": "[1008,869][1080,1112]",
+                                                "order": 1
+                                               },
+                                               {
+                                                "cls": "android.widget.ImageView",
+                                                "bounds": "[1008,1103][1052,1112]",
+                                                "order": 2
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[1044,905][1080,905]",
+                                              "visible": false,
+                                              "order": 3
+                                             },
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[1008,1136][1080,1304]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[1008,1136][1080,1304]",
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.ViewGroup",
+                                                  "bounds": "[1008,1136][1080,1304]",
+                                                  "order": 1,
+                                                  "children": [
+                                                   {
+                                                    "cls": "android.view.ViewGroup",
+                                                    "bounds": "[1008,1136][1080,1244]",
+                                                    "order": 1,
+                                                    "children": [
+                                                     {
+                                                      "cls": "android.view.ViewGroup",
+                                                      "desc": "x",
+                                                      "text": "x",
+                                                      "bounds": "[1008,1136][1080,1244]",
+                                                      "order": 1
+                                                     }
+                                                    ]
+                                                   },
+                                                   {
+                                                    "cls": "android.view.ViewGroup",
+                                                    "bounds": "[1008,1244][1080,1304]",
+                                                    "order": 2,
+                                                    "children": [
+                                                     {
+                                                      "cls": "android.view.ViewGroup",
+                                                      "desc": "x",
+                                                      "text": "x",
+                                                      "bounds": "[1008,1256][1080,1304]",
+                                                      "order": 1
+                                                     }
+                                                    ]
+                                                   }
+                                                  ]
+                                                 }
+                                                ]
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "bounds": "[0,1355][1080,1499]",
+                                    "order": 2,
+                                    "children": [
+                                     {
+                                      "cls": "android.view.View",
+                                      "desc": "x",
+                                      "bounds": "[48,1394][217,1460]",
+                                      "order": 0
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "bounds": "[0,1499][1080,1643]",
+                                    "order": 3,
+                                    "children": [
+                                     {
+                                      "cls": "android.view.ViewGroup",
+                                      "bounds": "[0,1499][1080,1643]",
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "cls": "android.support.v7.widget.RecyclerView",
+                                        "bounds": "[0,1499][1080,1643]",
+                                        "scrollable": true,
+                                        "order": 1,
+                                        "children": [
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[0,1499][323,1643]",
+                                          "order": 4,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.Spinner",
+                                            "desc": "x",
+                                            "bounds": "[48,1523][299,1619]",
+                                            "clickable": true,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "desc": "x",
+                                              "text": "x",
+                                              "bounds": "[84,1544][215,1598]",
+                                              "order": 1
+                                             },
+                                             {
+                                              "cls": "android.widget.ImageView",
+                                              "bounds": "[227,1544][281,1598]",
+                                              "order": 2
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         },
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[323,1499][653,1643]",
+                                          "order": 3,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.ToggleButton",
+                                            "desc": "x",
+                                            "bounds": "[323,1523][629,1619]",
+                                            "clickable": true,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "desc": "x",
+                                              "text": "x",
+                                              "bounds": "[359,1544][593,1598]",
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         },
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[653,1499][911,1643]",
+                                          "order": 2,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.ToggleButton",
+                                            "desc": "x",
+                                            "bounds": "[653,1523][887,1619]",
+                                            "clickable": true,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "desc": "x",
+                                              "text": "x",
+                                              "bounds": "[689,1544][851,1598]",
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         },
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[911,1499][1080,1643]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.ToggleButton",
+                                            "desc": "x",
+                                            "bounds": "[911,1523][1080,1619]",
+                                            "clickable": true,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "desc": "x",
+                                              "text": "x",
+                                              "bounds": "[947,1544][1062,1598]",
+                                              "order": 1
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "bounds": "[0,1643][1080,1941]",
+                                    "order": 4,
+                                    "children": [
+                                     {
+                                      "cls": "android.widget.Button",
+                                      "desc": "x",
+                                      "bounds": "[48,1667][1056,1917]",
+                                      "clickable": true,
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "cls": "android.view.ViewGroup",
+                                        "bounds": "[48,1667][451,1691]",
+                                        "order": 1
+                                       },
+                                       {
+                                        "cls": "android.view.ViewGroup",
+                                        "bounds": "[48,1694][451,1917]",
+                                        "order": 2,
+                                        "children": [
+                                         {
+                                          "cls": "android.widget.ImageView",
+                                          "bounds": "[48,1694][451,1917]",
+                                          "order": 1
+                                         },
+                                         {
+                                          "cls": "android.widget.ImageView",
+                                          "bounds": "[195,1751][303,1859]",
+                                          "order": 2
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "cls": "android.view.ViewGroup",
+                                        "bounds": "[499,1769][1044,1829]",
+                                        "order": 3,
+                                        "children": [
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[499,1769][1044,1829]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.view.ViewGroup",
+                                            "bounds": "[499,1769][1044,1829]",
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[499,1769][1044,1829]",
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "desc": "x",
+                                                "text": "x",
+                                                "bounds": "[499,1769][737,1829]",
+                                                "order": 1
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "bounds": "[0,1941][1080,2208]",
+                                    "order": 5,
+                                    "children": [
+                                     {
+                                      "cls": "android.widget.Button",
+                                      "desc": "x",
+                                      "bounds": "[48,1965][1056,2208]",
+                                      "clickable": true,
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "cls": "android.view.ViewGroup",
+                                        "bounds": "[48,1965][451,1989]",
+                                        "order": 1
+                                       },
+                                       {
+                                        "cls": "android.view.ViewGroup",
+                                        "bounds": "[48,1992][451,2208]",
+                                        "order": 2,
+                                        "children": [
+                                         {
+                                          "cls": "android.widget.ImageView",
+                                          "bounds": "[48,1992][451,2208]",
+                                          "order": 1
+                                         },
+                                         {
+                                          "cls": "android.widget.ImageView",
+                                          "bounds": "[361,2137][409,2185]",
+                                          "order": 2
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "cls": "android.view.ViewGroup",
+                                        "bounds": "[499,2037][972,2157]",
+                                        "order": 3,
+                                        "children": [
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[499,2037][972,2157]",
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "android.view.ViewGroup",
+                                            "bounds": "[499,2037][972,2157]",
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[499,2037][972,2097]",
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "desc": "x",
+                                                "text": "x",
+                                                "bounds": "[499,2037][768,2097]",
+                                                "order": 1
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[499,2097][972,2157]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "desc": "x",
+                                                "text": "x",
+                                                "bounds": "[499,2109][972,2157]",
+                                                "order": 1
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "cls": "android.widget.Button",
+                                        "desc": "x",
+                                        "bounds": "[983,2037][1055,2109]",
+                                        "clickable": true,
+                                        "order": 4
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   },
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "bounds": "[0,2239][1080,2208]",
+                                    "visible": false,
+                                    "order": 6
+                                   },
+                                   {
+                                    "cls": "android.view.ViewGroup",
+                                    "bounds": "[0,2537][1080,2208]",
+                                    "visible": false,
+                                    "order": 7
+                                   }
+                                  ]
+                                 }
+                                ]
+                               }
+                              ]
+                             }
+                            ]
+                           }
+                          ]
+                         }
+                        ]
+                       },
+                       {
+                        "id": "com.google.android.youtube:id/root_pill_container",
+                        "cls": "android.widget.FrameLayout",
+                        "bounds": "[0,2232][1080,2232]",
+                        "visible": false,
+                        "order": 2
+                       },
+                       {
+                        "id": "com.google.android.youtube:id/pane_fragment_footer_container",
+                        "cls": "android.widget.FrameLayout",
+                        "bounds": "[0,2352][1080,2352]",
+                        "visible": false,
+                        "order": 3
+                       }
+                      ]
+                     }
+                    ]
+                   },
+                   {
+                    "id": "com.google.android.youtube:id/bottom_bar_container",
+                    "cls": "android.widget.LinearLayout",
+                    "bounds": "[0,2208][1080,2352]",
+                    "order": 6,
+                    "children": [
+                     {
+                      "id": "com.google.android.youtube:id/pivot_bar",
+                      "cls": "android.widget.HorizontalScrollView",
+                      "bounds": "[0,2208][1080,2352]",
+                      "order": 1,
+                      "children": [
+                       {
+                        "cls": "android.widget.LinearLayout",
+                        "bounds": "[0,2208][1080,2352]",
+                        "order": 1,
+                        "children": [
+                         {
+                          "cls": "android.widget.Button",
+                          "desc": "Home",
+                          "bounds": "[0,2208][270,2352]",
+                          "clickable": true,
+                          "order": 1,
+                          "children": [
+                           {
+                            "id": "com.google.android.youtube:id/image",
+                            "cls": "android.widget.ImageView",
+                            "bounds": "[99,2268][171,2340]",
+                            "order": 3
+                           }
+                          ]
+                         },
+                         {
+                          "cls": "android.widget.Button",
+                          "desc": "Shorts",
+                          "bounds": "[270,2208][540,2352]",
+                          "clickable": true,
+                          "order": 2,
+                          "children": [
+                           {
+                            "id": "com.google.android.youtube:id/image",
+                            "cls": "android.widget.ImageView",
+                            "bounds": "[369,2268][441,2340]",
+                            "order": 3
+                           }
+                          ]
+                         },
+                         {
+                          "cls": "android.widget.Button",
+                          "desc": "Create",
+                          "bounds": "[540,2208][810,2352]",
+                          "clickable": true,
+                          "order": 3,
+                          "children": [
+                           {
+                            "id": "com.google.android.youtube:id/image",
+                            "cls": "android.widget.ImageView",
+                            "bounds": "[639,2268][711,2340]",
+                            "order": 3
+                           }
+                          ]
+                         },
+                         {
+                          "cls": "android.widget.Button",
+                          "desc": "You",
+                          "bounds": "[810,2208][1080,2352]",
+                          "selected": true,
+                          "clickable": true,
+                          "order": 4,
+                          "children": [
+                           {
+                            "id": "com.google.android.youtube:id/thumbnail_layout",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[909,2268][981,2340]",
+                            "selected": true,
+                            "order": 3,
+                            "children": [
+                             {
+                              "id": "com.google.android.youtube:id/you_tab_border",
+                              "cls": "android.widget.ImageView",
+                              "bounds": "[909,2268][981,2340]",
+                              "selected": true,
+                              "order": 2
+                             },
+                             {
+                              "id": "com.google.android.youtube:id/pivot_bar_thumbnail",
+                              "cls": "android.widget.ImageView",
+                              "bounds": "[918,2277][972,2331]",
+                              "selected": true,
+                              "order": 1
+                             }
+                            ]
+                           }
+                          ]
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "cls": "android.widget.FrameLayout",
+                "bounds": "[0,0][1080,110]",
+                "visible": false,
+                "order": 3,
+                "children": [
+                 {
+                  "id": "com.google.android.youtube:id/global_status_bar_view",
+                  "cls": "android.view.View",
+                  "bounds": "[0,0][1080,110]",
+                  "visible": false,
+                  "order": 2
+                 }
+                ]
+               },
+               {
+                "cls": "android.view.View",
+                "bounds": "[0,0][3,3]",
+                "visible": false,
+                "order": 2
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "android:id/navigationBarBackground",
+    "cls": "android.view.View",
+    "bounds": "[0,2352][1080,2400]",
+    "order": 2
+   }
+  ]
+ },
+ "extra": {
+  "windows": [
+   {
+    "id": 7172,
+    "type": 4,
+    "layer": 4,
+    "bounds": "[270,2208][540,2352]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 7105,
+    "type": 4,
+    "layer": 3,
+    "bounds": "[923,1595][1080,1704]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 7104,
+    "type": 4,
+    "layer": 2,
+    "bounds": "[919,1145][1080,1254]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 3125,
+    "type": 3,
+    "layer": 1,
+    "bounds": "[0,0][1080,110]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 7164,
+    "type": 1,
+    "layer": 0,
+    "bounds": "[0,0][1080,2400]",
+    "active": true,
+    "focused": true
+   }
+  ],
+  "navInsets": {
+   "l": 0,
+   "t": 0,
+   "r": 0,
+   "b": 48
+  }
+ }
+}

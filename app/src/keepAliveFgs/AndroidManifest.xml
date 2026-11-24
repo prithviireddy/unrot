@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Keep-alive test build only (decision 0011). app/build.gradle.kts adds this file to the debug build when it is built with
+  -PkeepAliveFgs. The foreground-service permissions and the special-use type live here, so plain debug and release builds
+  declare none. The code that uses them is gated by BuildConfig.KEEP_ALIVE_FGS.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <application>
+        <service
+            android:name=".service.BlockerService"
+            android:foregroundServiceType="specialUse"
+            tools:node="merge">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Blocks Instagram Reels and YouTube Shorts while the user has blocking turned on; if interrupted, reels play again." />
+        </service>
+    </application>
+</manifest>

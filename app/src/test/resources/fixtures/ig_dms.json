@@ -1,0 +1,1947 @@
+{
+ "package": "com.instagram.android",
+ "versionCode": 386215122,
+ "versionName": "456.1.0.56.78",
+ "screen": {
+  "w": 1080,
+  "h": 2400
+ },
+ "rulesVersion": 1,
+ "matched": {
+  "blocks": [],
+  "markers": [],
+  "covers": [
+   "ig_reels_tab_cover"
+  ]
+ },
+ "nodeCount": 256,
+ "tree": {
+  "cls": "android.widget.FrameLayout",
+  "bounds": "[0,0][1080,2400]",
+  "order": 0,
+  "win": 7107,
+  "children": [
+   {
+    "cls": "android.widget.LinearLayout",
+    "bounds": "[0,0][1080,2400]",
+    "order": 1,
+    "children": [
+     {
+      "cls": "android.widget.FrameLayout",
+      "bounds": "[0,0][1080,2400]",
+      "order": 2,
+      "children": [
+       {
+        "id": "com.instagram.android:id/action_bar_root",
+        "cls": "android.widget.LinearLayout",
+        "bounds": "[0,0][1080,2400]",
+        "order": 1,
+        "children": [
+         {
+          "id": "android:id/content",
+          "cls": "android.widget.FrameLayout",
+          "bounds": "[0,0][1080,2400]",
+          "order": 2,
+          "children": [
+           {
+            "cls": "android.widget.FrameLayout",
+            "bounds": "[0,0][1080,2400]",
+            "order": 1,
+            "children": [
+             {
+              "id": "com.instagram.android:id/swipe_navigation_container",
+              "cls": "android.widget.FrameLayout",
+              "bounds": "[0,0][1080,2400]",
+              "order": 1,
+              "children": [
+               {
+                "id": "com.instagram.android:id/layout_container_center_right_coordinator_layout",
+                "cls": "android.view.ViewGroup",
+                "bounds": "[0,0][1080,2352]",
+                "order": 3,
+                "children": [
+                 {
+                  "id": "com.instagram.android:id/layout_container_right",
+                  "cls": "android.widget.FrameLayout",
+                  "bounds": "[0,110][1080,2352]",
+                  "order": 2
+                 },
+                 {
+                  "id": "com.instagram.android:id/activity_and_camera_shared_views_main_container",
+                  "cls": "android.widget.FrameLayout",
+                  "bounds": "[0,110][1080,2352]",
+                  "order": 4
+                 },
+                 {
+                  "id": "com.instagram.android:id/layout_container_main_panel",
+                  "cls": "android.view.ViewGroup",
+                  "bounds": "[0,110][1080,2352]",
+                  "order": 1,
+                  "children": [
+                   {
+                    "id": "com.instagram.android:id/layout_container_main_wrapper",
+                    "cls": "android.widget.FrameLayout",
+                    "bounds": "[0,110][1080,2352]",
+                    "order": 2,
+                    "children": [
+                     {
+                      "id": "com.instagram.android:id/layout_container_main",
+                      "cls": "android.widget.FrameLayout",
+                      "bounds": "[0,110][1080,2208]",
+                      "order": 1
+                     },
+                     {
+                      "id": "com.instagram.android:id/swipeable_tab_view_pager",
+                      "cls": "androidx.viewpager.widget.ViewPager",
+                      "bounds": "[0,110][1080,2208]",
+                      "scrollable": true,
+                      "order": 2,
+                      "children": [
+                       {
+                        "id": "com.instagram.android:id/swipeable_nav_view_pager_inner_recycler_view",
+                        "cls": "androidx.recyclerview.widget.RecyclerView",
+                        "bounds": "[0,110][1080,2208]",
+                        "scrollable": true,
+                        "order": 1,
+                        "children": [
+                         {
+                          "cls": "android.widget.FrameLayout",
+                          "bounds": "[0,110][-1080,2208]",
+                          "visible": false,
+                          "order": 1,
+                          "children": [
+                           {
+                            "id": "com.instagram.android:id/layout_container_swipeable",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[0,110][-1080,2208]",
+                            "visible": false,
+                            "order": 1,
+                            "children": [
+                             {
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[0,110][-1080,2208]",
+                              "visible": false,
+                              "order": 1,
+                              "children": [
+                               {
+                                "cls": "android.widget.FrameLayout",
+                                "bounds": "[0,110][-1080,2208]",
+                                "visible": false,
+                                "order": 1,
+                                "children": [
+                                 {
+                                  "id": "com.instagram.android:id/sticky_header_list",
+                                  "cls": "android.widget.FrameLayout",
+                                  "bounds": "[0,110][-1080,2208]",
+                                  "visible": false,
+                                  "order": 1,
+                                  "children": [
+                                   {
+                                    "id": "com.instagram.android:id/refreshable_container",
+                                    "cls": "android.widget.FrameLayout",
+                                    "bounds": "[0,110][-1080,2208]",
+                                    "visible": false,
+                                    "order": 2,
+                                    "children": [
+                                     {
+                                      "id": "android:id/list",
+                                      "cls": "androidx.recyclerview.widget.RecyclerView",
+                                      "bounds": "[0,110][-1080,2208]",
+                                      "scrollable": true,
+                                      "visible": false,
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "id": "com.instagram.android:id/gap_binder_group",
+                                        "cls": "android.view.View",
+                                        "bounds": "[0,110][-1080,278]",
+                                        "visible": false,
+                                        "order": 1
+                                       },
+                                       {
+                                        "cls": "android.widget.LinearLayout",
+                                        "bounds": "[0,278][-1080,667]",
+                                        "visible": false,
+                                        "order": 2,
+                                        "children": [
+                                         {
+                                          "id": "com.instagram.android:id/reels_tray_container",
+                                          "cls": "android.widget.FrameLayout",
+                                          "bounds": "[0,278][-1080,667]",
+                                          "visible": false,
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "cls": "androidx.recyclerview.widget.RecyclerView",
+                                            "desc": "x",
+                                            "bounds": "[0,278][-1080,667]",
+                                            "scrollable": true,
+                                            "visible": false,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.instagram.android:id/outer_container",
+                                              "cls": "android.widget.LinearLayout",
+                                              "bounds": "[0,278][-1865,667]",
+                                              "clickable": true,
+                                              "visible": false,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "id": "com.instagram.android:id/avatar_view",
+                                                "cls": "android.widget.FrameLayout",
+                                                "bounds": "[0,314][-1865,597]",
+                                                "visible": false,
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.widget.Button",
+                                                  "desc": "x",
+                                                  "bounds": "[0,314][-1865,597]",
+                                                  "clickable": true,
+                                                  "visible": false,
+                                                  "order": 1,
+                                                  "children": [
+                                                   {
+                                                    "id": "com.instagram.android:id/avatar_container",
+                                                    "cls": "android.widget.FrameLayout",
+                                                    "bounds": "[0,314][-1865,597]",
+                                                    "visible": false,
+                                                    "order": 1,
+                                                    "children": [
+                                                     {
+                                                      "id": "com.instagram.android:id/avatar_image_view",
+                                                      "cls": "android.widget.ImageView",
+                                                      "desc": "x",
+                                                      "bounds": "[0,353][-1904,570]",
+                                                      "visible": false,
+                                                      "order": 7
+                                                     },
+                                                     {
+                                                      "id": "com.instagram.android:id/reel_empty_badge",
+                                                      "cls": "android.widget.ImageView",
+                                                      "bounds": "[0,508][-1889,585]",
+                                                      "visible": false,
+                                                      "order": 15
+                                                     }
+                                                    ]
+                                                   }
+                                                  ]
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "id": "com.instagram.android:id/title_container",
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[0,597][-1865,643]",
+                                                "visible": false,
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "id": "com.instagram.android:id/username",
+                                                  "cls": "android.widget.TextView",
+                                                  "text": "x",
+                                                  "bounds": "[0,597][-1927,643]",
+                                                  "visible": false,
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "id": "com.instagram.android:id/outer_container",
+                                              "cls": "android.widget.LinearLayout",
+                                              "bounds": "[0,278][-1570,667]",
+                                              "clickable": true,
+                                              "visible": false,
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "id": "com.instagram.android:id/avatar_view",
+                                                "cls": "android.widget.FrameLayout",
+                                                "bounds": "[0,314][-1570,597]",
+                                                "visible": false,
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.widget.Button",
+                                                  "desc": "x",
+                                                  "bounds": "[0,314][-1570,597]",
+                                                  "clickable": true,
+                                                  "visible": false,
+                                                  "order": 1,
+                                                  "children": [
+                                                   {
+                                                    "id": "com.instagram.android:id/avatar_container",
+                                                    "cls": "android.widget.FrameLayout",
+                                                    "bounds": "[0,314][-1570,597]",
+                                                    "visible": false,
+                                                    "order": 1,
+                                                    "children": [
+                                                     {
+                                                      "id": "com.instagram.android:id/seen_state",
+                                                      "cls": "android.view.View",
+                                                      "bounds": "[0,332][-1588,591]",
+                                                      "visible": false,
+                                                      "order": 11
+                                                     },
+                                                     {
+                                                      "id": "com.instagram.android:id/avatar_image_view",
+                                                      "cls": "android.widget.ImageView",
+                                                      "desc": "x",
+                                                      "bounds": "[0,353][-1609,570]",
+                                                      "visible": false,
+                                                      "order": 7
+                                                     }
+                                                    ]
+                                                   }
+                                                  ]
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "id": "com.instagram.android:id/title_container",
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[0,597][-1570,643]",
+                                                "visible": false,
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "id": "com.instagram.android:id/username",
+                                                  "cls": "android.widget.TextView",
+                                                  "text": "x",
+                                                  "bounds": "[0,597][-1631,643]",
+                                                  "visible": false,
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "id": "com.instagram.android:id/outer_container",
+                                              "cls": "android.widget.LinearLayout",
+                                              "bounds": "[0,278][-1275,667]",
+                                              "clickable": true,
+                                              "visible": false,
+                                              "order": 3,
+                                              "children": [
+                                               {
+                                                "id": "com.instagram.android:id/avatar_view",
+                                                "cls": "android.widget.FrameLayout",
+                                                "bounds": "[0,314][-1275,597]",
+                                                "visible": false,
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.widget.Button",
+                                                  "desc": "x",
+                                                  "bounds": "[0,314][-1275,597]",
+                                                  "clickable": true,
+                                                  "visible": false,
+                                                  "order": 1,
+                                                  "children": [
+                                                   {
+                                                    "id": "com.instagram.android:id/avatar_container",
+                                                    "cls": "android.widget.FrameLayout",
+                                                    "bounds": "[0,314][-1275,597]",
+                                                    "visible": false,
+                                                    "order": 1,
+                                                    "children": [
+                                                     {
+                                                      "id": "com.instagram.android:id/seen_state",
+                                                      "cls": "android.view.View",
+                                                      "bounds": "[0,332][-1293,591]",
+                                                      "visible": false,
+                                                      "order": 11
+                                                     },
+                                                     {
+                                                      "id": "com.instagram.android:id/avatar_image_view",
+                                                      "cls": "android.widget.ImageView",
+                                                      "desc": "x",
+                                                      "bounds": "[0,353][-1314,570]",
+                                                      "visible": false,
+                                                      "order": 7
+                                                     }
+                                                    ]
+                                                   }
+                                                  ]
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "id": "com.instagram.android:id/title_container",
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[0,597][-1275,643]",
+                                                "visible": false,
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "id": "com.instagram.android:id/username",
+                                                  "cls": "android.widget.TextView",
+                                                  "text": "x",
+                                                  "bounds": "[0,597][-1287,643]",
+                                                  "visible": false,
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "id": "com.instagram.android:id/outer_container",
+                                              "cls": "android.widget.LinearLayout",
+                                              "bounds": "[0,278][-1080,667]",
+                                              "clickable": true,
+                                              "visible": false,
+                                              "order": 4,
+                                              "children": [
+                                               {
+                                                "id": "com.instagram.android:id/avatar_view",
+                                                "cls": "android.widget.FrameLayout",
+                                                "bounds": "[0,314][-1080,597]",
+                                                "visible": false,
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.widget.Button",
+                                                  "desc": "x",
+                                                  "bounds": "[0,314][-1080,597]",
+                                                  "clickable": true,
+                                                  "visible": false,
+                                                  "order": 1,
+                                                  "children": [
+                                                   {
+                                                    "id": "com.instagram.android:id/avatar_container",
+                                                    "cls": "android.widget.FrameLayout",
+                                                    "bounds": "[0,314][-1080,597]",
+                                                    "visible": false,
+                                                    "order": 1,
+                                                    "children": [
+                                                     {
+                                                      "id": "com.instagram.android:id/seen_state",
+                                                      "cls": "android.view.View",
+                                                      "bounds": "[0,332][-1080,591]",
+                                                      "visible": false,
+                                                      "order": 11
+                                                     },
+                                                     {
+                                                      "id": "com.instagram.android:id/avatar_image_view",
+                                                      "cls": "android.widget.ImageView",
+                                                      "desc": "x",
+                                                      "bounds": "[0,353][-1080,570]",
+                                                      "visible": false,
+                                                      "order": 7
+                                                     }
+                                                    ]
+                                                   }
+                                                  ]
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "id": "com.instagram.android:id/title_container",
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[0,597][-1080,643]",
+                                                "visible": false,
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "id": "com.instagram.android:id/username",
+                                                  "cls": "android.widget.TextView",
+                                                  "text": "x",
+                                                  "bounds": "[0,597][-1080,643]",
+                                                  "visible": false,
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "cls": "android.view.ViewGroup",
+                                        "bounds": "[0,667][-1080,2208]",
+                                        "visible": false,
+                                        "order": 3,
+                                        "children": [
+                                         {
+                                          "id": "com.instagram.android:id/video_container",
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[0,667][-1080,2208]",
+                                          "visible": false,
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "id": "com.instagram.android:id/video_container",
+                                            "cls": "android.view.ViewGroup",
+                                            "bounds": "[0,667][-1080,2208]",
+                                            "visible": false,
+                                            "order": 2,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.ViewGroup",
+                                              "bounds": "[0,667][-1080,2208]",
+                                              "visible": false,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.FrameLayout",
+                                                "bounds": "[0,667][-1080,2208]",
+                                                "visible": false,
+                                                "order": 4,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.widget.FrameLayout",
+                                                  "bounds": "[0,667][-1080,2208]",
+                                                  "visible": false,
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.FrameLayout",
+                                                "bounds": "[0,667][-1080,2208]",
+                                                "visible": false,
+                                                "order": 1
+                                               },
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[0,1627][-1620,1627]",
+                                                "visible": false,
+                                                "order": 5
+                                               },
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[0,2462][-1240,2208]",
+                                                "visible": false,
+                                                "order": 3
+                                               },
+                                               {
+                                                "cls": "android.view.ViewGroup",
+                                                "bounds": "[0,2468][-1080,2208]",
+                                                "visible": false,
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.ViewGroup",
+                                                  "bounds": "[0,2468][-1080,2208]",
+                                                  "clickable": true,
+                                                  "visible": false,
+                                                  "order": 1,
+                                                  "children": [
+                                                   {
+                                                    "cls": "android.widget.LinearLayout",
+                                                    "desc": "x",
+                                                    "bounds": "[0,2468][-1122,2208]",
+                                                    "visible": false,
+                                                    "order": 1,
+                                                    "children": [
+                                                     {
+                                                      "id": "com.instagram.android:id/slideout_iconview_icon",
+                                                      "cls": "android.widget.ImageView",
+                                                      "bounds": "[0,2487][-1141,2208]",
+                                                      "visible": false,
+                                                      "order": 1
+                                                     }
+                                                    ]
+                                                   }
+                                                  ]
+                                                 }
+                                                ]
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           },
+                                           {
+                                            "id": "com.instagram.android:id/video_container",
+                                            "cls": "android.widget.FrameLayout",
+                                            "bounds": "[0,667][-1080,2208]",
+                                            "visible": false,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.instagram.android:id/media_group",
+                                              "cls": "android.widget.FrameLayout",
+                                              "bounds": "[0,667][-1080,2208]",
+                                              "clickable": true,
+                                              "visible": false,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[0,667][-1080,2208]",
+                                                "visible": false,
+                                                "order": 1
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         },
+                                         {
+                                          "cls": "android.view.ViewGroup",
+                                          "bounds": "[0,667][-1080,1042]",
+                                          "visible": false,
+                                          "order": 2
+                                         },
+                                         {
+                                          "id": "com.instagram.android:id/row_feed_profile_header",
+                                          "cls": "android.view.ViewGroup",
+                                          "desc": "x",
+                                          "bounds": "[0,667][-1080,823]",
+                                          "visible": false,
+                                          "order": 3,
+                                          "children": [
+                                           {
+                                            "cls": "android.widget.Button",
+                                            "bounds": "[0,667][-2013,823]",
+                                            "clickable": true,
+                                            "visible": false,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[0,688][-2013,802]",
+                                              "visible": false,
+                                              "order": 1
+                                             },
+                                             {
+                                              "id": "com.instagram.android:id/row_feed_photo_profile_imageview",
+                                              "cls": "android.widget.ImageView",
+                                              "desc": "x",
+                                              "bounds": "[0,700][-2025,790]",
+                                              "visible": false,
+                                              "order": 2
+                                             }
+                                            ]
+                                           },
+                                           {
+                                            "id": "com.instagram.android:id/row_feed_photo_profile_name",
+                                            "cls": "android.widget.Button",
+                                            "desc": "x",
+                                            "text": "x",
+                                            "bounds": "[0,667][-1212,743]",
+                                            "clickable": true,
+                                            "visible": false,
+                                            "order": 2
+                                           },
+                                           {
+                                            "id": "com.instagram.android:id/secondary_label",
+                                            "cls": "android.widget.Button",
+                                            "desc": "x",
+                                            "text": "x",
+                                            "bounds": "[0,742][-1212,823]",
+                                            "clickable": true,
+                                            "visible": false,
+                                            "order": 3
+                                           },
+                                           {
+                                            "id": "com.instagram.android:id/media_option_button",
+                                            "cls": "android.widget.ImageView",
+                                            "desc": "x",
+                                            "bounds": "[0,673][-1080,817]",
+                                            "clickable": true,
+                                            "visible": false,
+                                            "order": 4
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 },
+                                 {
+                                  "id": "com.instagram.android:id/action_bar_LinearLayout",
+                                  "cls": "android.widget.LinearLayout",
+                                  "bounds": "[0,110][-1080,278]",
+                                  "visible": false,
+                                  "order": 7,
+                                  "children": [
+                                   {
+                                    "id": "com.instagram.android:id/main_feed_action_bar",
+                                    "cls": "android.widget.FrameLayout",
+                                    "bounds": "[0,110][-1080,278]",
+                                    "visible": false,
+                                    "order": 1,
+                                    "children": [
+                                     {
+                                      "id": "com.instagram.android:id/action_bar_action_buttons",
+                                      "cls": "android.widget.LinearLayout",
+                                      "bounds": "[0,110][-1080,278]",
+                                      "visible": false,
+                                      "order": 1,
+                                      "children": [
+                                       {
+                                        "id": "com.instagram.android:id/action_bar_buttons_container_left",
+                                        "cls": "android.widget.LinearLayout",
+                                        "bounds": "[0,110][-2016,278]",
+                                        "visible": false,
+                                        "order": 1,
+                                        "children": [
+                                         {
+                                          "id": "com.instagram.android:id/action_bar_left_button",
+                                          "cls": "android.widget.ImageView",
+                                          "desc": "Create",
+                                          "bounds": "[0,110][-2016,278]",
+                                          "clickable": true,
+                                          "visible": false,
+                                          "order": 1
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "id": "com.instagram.android:id/action_bar_title_view",
+                                        "cls": "android.widget.ViewAnimator",
+                                        "bounds": "[0,132][-1224,255]",
+                                        "clickable": true,
+                                        "visible": false,
+                                        "order": 2,
+                                        "children": [
+                                         {
+                                          "id": "com.instagram.android:id/title_logo_chevron_container",
+                                          "cls": "android.widget.LinearLayout",
+                                          "bounds": "[0,132][-1446,255]",
+                                          "visible": false,
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "id": "com.instagram.android:id/title_logo",
+                                            "cls": "android.widget.ImageView",
+                                            "desc": "x",
+                                            "bounds": "[0,132][-1446,255]",
+                                            "visible": false,
+                                            "order": 1
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       },
+                                       {
+                                        "id": "com.instagram.android:id/action_bar_buttons_container_right",
+                                        "cls": "android.widget.LinearLayout",
+                                        "bounds": "[0,110][-1080,278]",
+                                        "visible": false,
+                                        "order": 4,
+                                        "children": [
+                                         {
+                                          "id": "com.instagram.android:id/notification",
+                                          "cls": "android.widget.FrameLayout",
+                                          "bounds": "[0,110][-1080,278]",
+                                          "clickable": true,
+                                          "visible": false,
+                                          "order": 1,
+                                          "children": [
+                                           {
+                                            "id": "com.instagram.android:id/wrapper",
+                                            "cls": "android.view.ViewGroup",
+                                            "bounds": "[0,158][-1116,230]",
+                                            "visible": false,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "id": "com.instagram.android:id/container",
+                                              "cls": "android.widget.FrameLayout",
+                                              "bounds": "[0,158][-1116,230]",
+                                              "visible": false,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "id": "com.instagram.android:id/tab_icon",
+                                                "cls": "android.widget.ImageView",
+                                                "bounds": "[0,158][-1116,230]",
+                                                "visible": false,
+                                                "order": 1
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 }
+                                ]
+                               }
+                              ]
+                             }
+                            ]
+                           }
+                          ]
+                         },
+                         {
+                          "cls": "android.widget.FrameLayout",
+                          "bounds": "[0,110][0,2208]",
+                          "visible": false,
+                          "order": 2,
+                          "children": [
+                           {
+                            "id": "com.instagram.android:id/layout_container_swipeable",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[0,110][0,2208]",
+                            "visible": false,
+                            "order": 1
+                           }
+                          ]
+                         },
+                         {
+                          "cls": "android.widget.FrameLayout",
+                          "bounds": "[0,110][1080,2208]",
+                          "order": 3,
+                          "children": [
+                           {
+                            "id": "com.instagram.android:id/layout_container_swipeable",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[0,110][1080,2208]",
+                            "order": 1,
+                            "children": [
+                             {
+                              "id": "com.instagram.android:id/container",
+                              "cls": "android.widget.FrameLayout",
+                              "bounds": "[0,110][1080,2208]",
+                              "order": 1,
+                              "children": [
+                               {
+                                "id": "com.instagram.android:id/direct_inbox_action_bar",
+                                "cls": "android.widget.LinearLayout",
+                                "bounds": "[0,110][1080,278]",
+                                "order": 9,
+                                "children": [
+                                 {
+                                  "id": "com.instagram.android:id/action_bar_start_action_buttons",
+                                  "cls": "android.widget.LinearLayout",
+                                  "bounds": "[24,110][156,110]",
+                                  "visible": false,
+                                  "order": 2
+                                 },
+                                 {
+                                  "id": "com.instagram.android:id/action_bar_title_subtitle_container",
+                                  "cls": "android.widget.LinearLayout",
+                                  "bounds": "[204,154][876,233]",
+                                  "order": 3,
+                                  "children": [
+                                   {
+                                    "id": "com.instagram.android:id/action_bar_title_notifications_container",
+                                    "cls": "android.widget.LinearLayout",
+                                    "bounds": "[204,154][876,233]",
+                                    "order": 1,
+                                    "children": [
+                                     {
+                                      "id": "com.instagram.android:id/igds_action_bar_title",
+                                      "cls": "android.widget.Button",
+                                      "text": "x",
+                                      "bounds": "[204,154][876,233]",
+                                      "clickable": true,
+                                      "order": 1
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 },
+                                 {
+                                  "id": "com.instagram.android:id/action_bar_end_action_buttons",
+                                  "cls": "android.widget.LinearLayout",
+                                  "bounds": "[924,110][1056,278]",
+                                  "order": 4,
+                                  "children": [
+                                   {
+                                    "cls": "android.widget.ImageView",
+                                    "desc": "x",
+                                    "bounds": "[924,110][1056,278]",
+                                    "clickable": true,
+                                    "order": 1
+                                   }
+                                  ]
+                                 }
+                                ]
+                               },
+                               {
+                                "id": "com.instagram.android:id/list_container",
+                                "cls": "android.widget.FrameLayout",
+                                "bounds": "[0,278][1080,2208]",
+                                "order": 1,
+                                "children": [
+                                 {
+                                  "id": "com.instagram.android:id/refreshable_container",
+                                  "cls": "android.widget.FrameLayout",
+                                  "bounds": "[0,278][1080,2208]",
+                                  "order": 2,
+                                  "children": [
+                                   {
+                                    "cls": "androidx.compose.ui.platform.ComposeView",
+                                    "bounds": "[0,278][1080,2208]",
+                                    "order": 2,
+                                    "children": [
+                                     {
+                                      "cls": "android.view.View",
+                                      "bounds": "[0,278][1080,2208]",
+                                      "order": 0,
+                                      "children": [
+                                       {
+                                        "cls": "android.view.View",
+                                        "bounds": "[0,278][1080,2208]",
+                                        "order": 0,
+                                        "children": [
+                                         {
+                                          "cls": "android.view.View",
+                                          "bounds": "[0,278][1080,2208]",
+                                          "scrollable": true,
+                                          "order": 0,
+                                          "children": [
+                                           {
+                                            "id": "search_row",
+                                            "cls": "android.view.View",
+                                            "bounds": "[0,278][1080,476]",
+                                            "order": 0,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[48,314][1032,458]",
+                                              "clickable": true,
+                                              "order": 0,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "desc": "x",
+                                                "bounds": "[96,362][144,410]",
+                                                "order": 0
+                                               },
+                                               {
+                                                "id": "ig_text",
+                                                "cls": "android.widget.TextView",
+                                                "text": "x",
+                                                "bounds": "[192,357][1032,415]",
+                                                "order": 1
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "bounds": "[48,320][1032,452]",
+                                                "order": 2
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           },
+                                           {
+                                            "cls": "android.view.View",
+                                            "bounds": "[0,476][1080,944]",
+                                            "scrollable": true,
+                                            "order": 1,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[36,494][330,926]",
+                                              "order": 0,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "desc": "x",
+                                                "bounds": "[36,494][330,926]",
+                                                "order": 0
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[75,672][291,829]",
+                                                "clickable": true,
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.View",
+                                                  "bounds": "[75,672][291,829]",
+                                                  "order": 0
+                                                 },
+                                                 {
+                                                  "cls": "android.widget.Button",
+                                                  "bounds": "[75,613][291,829]",
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[36,510][330,672]",
+                                                "clickable": true,
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.View",
+                                                  "bounds": "[84,513][282,657]",
+                                                  "order": 0,
+                                                  "children": [
+                                                   {
+                                                    "cls": "android.widget.TextView",
+                                                    "text": "x",
+                                                    "bounds": "[84,546][282,624]",
+                                                    "order": 0
+                                                   }
+                                                  ]
+                                                 },
+                                                 {
+                                                  "cls": "android.widget.Button",
+                                                  "bounds": "[36,510][330,672]",
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.TextView",
+                                                "text": "x",
+                                                "bounds": "[36,847][330,890]",
+                                                "order": 3
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[70,890][297,926]",
+                                                "clickable": true,
+                                                "order": 4,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.widget.TextView",
+                                                  "text": "x",
+                                                  "bounds": "[112,890][285,926]",
+                                                  "order": 0
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "bounds": "[36,494][330,926]",
+                                                "order": 5
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[330,494][624,926]",
+                                              "clickable": true,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "desc": "x",
+                                                "bounds": "[330,494][624,926]",
+                                                "order": 0
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[369,692][585,788]",
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.View",
+                                                  "bounds": "[369,692][585,788]",
+                                                  "order": 0
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[330,491][624,692]",
+                                                "clickable": true,
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.View",
+                                                  "bounds": "[378,514][576,658]",
+                                                  "order": 0,
+                                                  "children": [
+                                                   {
+                                                    "cls": "android.view.View",
+                                                    "bounds": "[318,475][462,619]",
+                                                    "order": 0
+                                                   },
+                                                   {
+                                                    "cls": "android.widget.TextView",
+                                                    "text": "x",
+                                                    "bounds": "[414,527][624,566]",
+                                                    "order": 1
+                                                   },
+                                                   {
+                                                    "cls": "android.widget.TextView",
+                                                    "text": "x",
+                                                    "bounds": "[378,566][576,605]",
+                                                    "order": 2
+                                                   },
+                                                   {
+                                                    "cls": "android.widget.TextView",
+                                                    "text": "x",
+                                                    "bounds": "[378,605][576,644]",
+                                                    "order": 3
+                                                   }
+                                                  ]
+                                                 },
+                                                 {
+                                                  "cls": "android.widget.Button",
+                                                  "bounds": "[330,491][624,692]",
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "text": "x",
+                                                "bounds": "[330,788][624,932]",
+                                                "clickable": true,
+                                                "order": 3
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "bounds": "[330,494][624,926]",
+                                                "order": 4
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[624,494][918,926]",
+                                              "clickable": true,
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "desc": "x",
+                                                "bounds": "[624,494][918,926]",
+                                                "order": 0
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[663,672][879,788]",
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.View",
+                                                  "bounds": "[663,672][879,788]",
+                                                  "order": 0
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[624,510][918,672]",
+                                                "clickable": true,
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.View",
+                                                  "bounds": "[672,513][870,657]",
+                                                  "order": 0,
+                                                  "children": [
+                                                   {
+                                                    "cls": "android.view.View",
+                                                    "bounds": "[612,494][756,638]",
+                                                    "order": 0
+                                                   },
+                                                   {
+                                                    "cls": "android.widget.TextView",
+                                                    "text": "x",
+                                                    "bounds": "[708,546][918,585]",
+                                                    "order": 1
+                                                   },
+                                                   {
+                                                    "cls": "android.widget.TextView",
+                                                    "text": "x",
+                                                    "bounds": "[692,585][850,624]",
+                                                    "order": 2
+                                                   }
+                                                  ]
+                                                 },
+                                                 {
+                                                  "cls": "android.widget.Button",
+                                                  "bounds": "[624,510][918,672]",
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "text": "x",
+                                                "bounds": "[624,788][918,932]",
+                                                "clickable": true,
+                                                "order": 3
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "bounds": "[624,494][918,926]",
+                                                "order": 4
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[918,494][1080,926]",
+                                              "clickable": true,
+                                              "order": 3,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "desc": "x",
+                                                "bounds": "[918,494][1080,926]",
+                                                "order": 0
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[957,725][1080,788]",
+                                                "order": 1,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.View",
+                                                  "bounds": "[957,725][1080,788]",
+                                                  "order": 0
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[918,494][1080,725]",
+                                                "clickable": true,
+                                                "order": 2,
+                                                "children": [
+                                                 {
+                                                  "cls": "android.view.View",
+                                                  "bounds": "[966,521][1080,677]",
+                                                  "order": 0,
+                                                  "children": [
+                                                   {
+                                                    "cls": "android.view.View",
+                                                    "bounds": "[918,494][1050,613]",
+                                                    "order": 0
+                                                   },
+                                                   {
+                                                    "cls": "android.widget.TextView",
+                                                    "text": "x",
+                                                    "bounds": "[1002,521][1080,560]",
+                                                    "order": 1
+                                                   },
+                                                   {
+                                                    "cls": "android.widget.TextView",
+                                                    "text": "x",
+                                                    "bounds": "[966,560][1080,599]",
+                                                    "order": 2
+                                                   },
+                                                   {
+                                                    "cls": "android.widget.TextView",
+                                                    "text": "x",
+                                                    "bounds": "[966,599][1080,677]",
+                                                    "order": 3
+                                                   }
+                                                  ]
+                                                 },
+                                                 {
+                                                  "cls": "android.widget.Button",
+                                                  "bounds": "[918,485][1080,725]",
+                                                  "order": 1
+                                                 }
+                                                ]
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "text": "x",
+                                                "bounds": "[918,788][1080,926]",
+                                                "clickable": true,
+                                                "order": 3
+                                               },
+                                               {
+                                                "cls": "android.widget.Button",
+                                                "bounds": "[918,494][1080,926]",
+                                                "order": 4
+                                               }
+                                              ]
+                                             }
+                                            ]
+                                           },
+                                           {
+                                            "cls": "android.widget.TextView",
+                                            "text": "x",
+                                            "bounds": "[48,963][279,1021]",
+                                            "order": 2
+                                           },
+                                           {
+                                            "cls": "android.widget.TextView",
+                                            "text": "x",
+                                            "bounds": "[819,920][1032,1040]",
+                                            "clickable": true,
+                                            "order": 3
+                                           },
+                                           {
+                                            "cls": "android.view.View",
+                                            "bounds": "[0,1040][1080,1268]",
+                                            "clickable": true,
+                                            "order": 4,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.View",
+                                              "desc": "x",
+                                              "bounds": "[0,1040][1080,1268]",
+                                              "order": 0
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[42,1061][228,1247]",
+                                              "clickable": true,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[57,1076][213,1232]",
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[270,1104][626,1154]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.TextView",
+                                                "text": "x",
+                                                "bounds": "[270,1104][626,1154]",
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "text": "x",
+                                              "bounds": "[270,1154][533,1204]",
+                                              "order": 3
+                                             },
+                                             {
+                                              "cls": "android.widget.Button",
+                                              "bounds": "[0,1040][1080,1268]",
+                                              "order": 4
+                                             }
+                                            ]
+                                           },
+                                           {
+                                            "cls": "android.view.View",
+                                            "bounds": "[0,1268][1080,1496]",
+                                            "clickable": true,
+                                            "order": 5,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.View",
+                                              "desc": "x",
+                                              "bounds": "[0,1268][1080,1496]",
+                                              "order": 0
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[42,1289][228,1475]",
+                                              "clickable": true,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[42,1289][228,1475]",
+                                                "order": 0
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[48,1295][222,1469]",
+                                                "order": 1
+                                               },
+                                               {
+                                                "cls": "android.view.View",
+                                                "desc": "x",
+                                                "bounds": "[57,1304][213,1460]",
+                                                "order": 2
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[270,1332][546,1382]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.TextView",
+                                                "text": "x",
+                                                "bounds": "[270,1332][546,1382]",
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "desc": "x",
+                                              "bounds": "[555,1336][597,1378]",
+                                              "order": 3
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "text": "x",
+                                              "bounds": "[270,1382][949,1432]",
+                                              "order": 4
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "desc": "x",
+                                              "text": "x",
+                                              "bounds": "[961,1382][1038,1432]",
+                                              "order": 5
+                                             },
+                                             {
+                                              "cls": "android.widget.Button",
+                                              "bounds": "[0,1268][1080,1496]",
+                                              "order": 6
+                                             }
+                                            ]
+                                           },
+                                           {
+                                            "cls": "android.view.View",
+                                            "bounds": "[0,1496][1080,1724]",
+                                            "clickable": true,
+                                            "order": 6,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.View",
+                                              "desc": "x",
+                                              "bounds": "[0,1496][1080,1724]",
+                                              "order": 0
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[42,1517][228,1703]",
+                                              "clickable": true,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[57,1532][213,1688]",
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[270,1560][683,1610]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.TextView",
+                                                "text": "x",
+                                                "bounds": "[270,1560][683,1610]",
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "text": "x",
+                                              "bounds": "[270,1610][514,1660]",
+                                              "order": 3
+                                             },
+                                             {
+                                              "cls": "android.widget.Button",
+                                              "bounds": "[0,1496][1080,1724]",
+                                              "order": 4
+                                             }
+                                            ]
+                                           },
+                                           {
+                                            "cls": "android.view.View",
+                                            "bounds": "[0,1724][1080,1952]",
+                                            "clickable": true,
+                                            "order": 7,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.View",
+                                              "desc": "x",
+                                              "bounds": "[0,1724][1080,1952]",
+                                              "order": 0
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[42,1745][228,1931]",
+                                              "clickable": true,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[57,1760][213,1916]",
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[270,1788][491,1838]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.TextView",
+                                                "text": "x",
+                                                "bounds": "[270,1788][491,1838]",
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "text": "x",
+                                              "bounds": "[270,1838][644,1888]",
+                                              "order": 3
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "desc": "x",
+                                              "text": "x",
+                                              "bounds": "[656,1838][706,1888]",
+                                              "order": 4
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[715,1845][751,1881]",
+                                              "order": 5
+                                             },
+                                             {
+                                              "cls": "android.widget.Button",
+                                              "bounds": "[0,1724][1080,1952]",
+                                              "order": 6
+                                             }
+                                            ]
+                                           },
+                                           {
+                                            "cls": "android.view.View",
+                                            "bounds": "[0,1952][1080,2180]",
+                                            "clickable": true,
+                                            "order": 8,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.View",
+                                              "desc": "x",
+                                              "bounds": "[0,1952][1080,2180]",
+                                              "order": 0
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[42,1973][228,2159]",
+                                              "clickable": true,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[57,1988][213,2144]",
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[270,2016][573,2066]",
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.TextView",
+                                                "text": "x",
+                                                "bounds": "[270,2016][573,2066]",
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "text": "x",
+                                              "bounds": "[270,2066][379,2116]",
+                                              "order": 3
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "desc": "x",
+                                              "text": "x",
+                                              "bounds": "[391,2066][458,2116]",
+                                              "order": 4
+                                             },
+                                             {
+                                              "cls": "android.widget.Button",
+                                              "bounds": "[0,1952][1080,2180]",
+                                              "order": 5
+                                             }
+                                            ]
+                                           },
+                                           {
+                                            "cls": "android.view.View",
+                                            "bounds": "[0,2180][1080,2208]",
+                                            "clickable": true,
+                                            "order": 9,
+                                            "children": [
+                                             {
+                                              "cls": "android.view.View",
+                                              "desc": "x",
+                                              "bounds": "[0,2180][1080,2208]",
+                                              "order": 0
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[42,2201][228,2324]",
+                                              "clickable": true,
+                                              "order": 1,
+                                              "children": [
+                                               {
+                                                "cls": "android.view.View",
+                                                "bounds": "[57,2216][213,2324]",
+                                                "visible": false,
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.view.View",
+                                              "bounds": "[270,2244][717,2294]",
+                                              "visible": false,
+                                              "order": 2,
+                                              "children": [
+                                               {
+                                                "cls": "android.widget.TextView",
+                                                "text": "x",
+                                                "bounds": "[270,2244][717,2294]",
+                                                "visible": false,
+                                                "order": 0
+                                               }
+                                              ]
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "text": "x",
+                                              "bounds": "[270,2294][644,2324]",
+                                              "visible": false,
+                                              "order": 3
+                                             },
+                                             {
+                                              "cls": "android.widget.TextView",
+                                              "desc": "x",
+                                              "text": "x",
+                                              "bounds": "[656,2294][723,2324]",
+                                              "visible": false,
+                                              "order": 4
+                                             },
+                                             {
+                                              "cls": "android.widget.Button",
+                                              "bounds": "[0,2180][1080,2208]",
+                                              "order": 5
+                                             }
+                                            ]
+                                           }
+                                          ]
+                                         }
+                                        ]
+                                       }
+                                      ]
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 }
+                                ]
+                               },
+                               {
+                                "cls": "android.widget.LinearLayout",
+                                "bounds": "[882,1788][1080,2208]",
+                                "order": 2,
+                                "children": [
+                                 {
+                                  "id": "com.instagram.android:id/direct_quick_snap_consumption_preview",
+                                  "cls": "android.widget.FrameLayout",
+                                  "bounds": "[882,1788][1080,2208]",
+                                  "clickable": true,
+                                  "order": 1,
+                                  "children": [
+                                   {
+                                    "id": "com.instagram.android:id/image_stack_container",
+                                    "cls": "android.widget.FrameLayout",
+                                    "bounds": "[882,1788][1080,2208]",
+                                    "order": 1,
+                                    "children": [
+                                     {
+                                      "id": "com.instagram.android:id/creation_entrypoint",
+                                      "cls": "android.widget.FrameLayout",
+                                      "bounds": "[911,1841][1080,2179]",
+                                      "order": 2
+                                     },
+                                     {
+                                      "id": "com.instagram.android:id/creation_plus_badge_container",
+                                      "cls": "android.widget.ImageView",
+                                      "bounds": "[952,1909][1034,1991]",
+                                      "order": 3
+                                     }
+                                    ]
+                                   }
+                                  ]
+                                 }
+                                ]
+                               }
+                              ]
+                             }
+                            ]
+                           }
+                          ]
+                         },
+                         {
+                          "cls": "android.widget.FrameLayout",
+                          "bounds": "[1080,110][1080,2208]",
+                          "visible": false,
+                          "order": 4,
+                          "children": [
+                           {
+                            "id": "com.instagram.android:id/layout_container_swipeable",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[1080,110][1080,2208]",
+                            "visible": false,
+                            "order": 1
+                           }
+                          ]
+                         },
+                         {
+                          "cls": "android.widget.FrameLayout",
+                          "bounds": "[2160,110][1080,2208]",
+                          "visible": false,
+                          "order": 5,
+                          "children": [
+                           {
+                            "id": "com.instagram.android:id/layout_container_swipeable",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[2160,110][1080,2208]",
+                            "visible": false,
+                            "order": 1
+                           }
+                          ]
+                         }
+                        ]
+                       }
+                      ]
+                     },
+                     {
+                      "id": "com.instagram.android:id/tab_bar_shadow",
+                      "cls": "android.view.View",
+                      "bounds": "[0,2207][1080,2208]",
+                      "order": 5
+                     },
+                     {
+                      "id": "com.instagram.android:id/tab_bar",
+                      "cls": "android.widget.LinearLayout",
+                      "bounds": "[0,2208][1080,2352]",
+                      "order": 6,
+                      "children": [
+                       {
+                        "id": "com.instagram.android:id/feed_tab",
+                        "cls": "android.widget.FrameLayout",
+                        "desc": "Home",
+                        "bounds": "[0,2208][216,2352]",
+                        "clickable": true,
+                        "order": 1,
+                        "children": [
+                         {
+                          "id": "com.instagram.android:id/tab_icon",
+                          "cls": "android.widget.ImageView",
+                          "bounds": "[72,2244][144,2316]",
+                          "order": 2
+                         }
+                        ]
+                       },
+                       {
+                        "id": "com.instagram.android:id/clips_tab",
+                        "cls": "android.widget.FrameLayout",
+                        "desc": "Reels",
+                        "bounds": "[216,2208][432,2352]",
+                        "clickable": true,
+                        "order": 2,
+                        "children": [
+                         {
+                          "id": "com.instagram.android:id/tab_icon",
+                          "cls": "android.widget.ImageView",
+                          "bounds": "[288,2244][360,2316]",
+                          "order": 2
+                         }
+                        ]
+                       },
+                       {
+                        "id": "com.instagram.android:id/direct_tab",
+                        "cls": "android.widget.FrameLayout",
+                        "desc": "Message",
+                        "bounds": "[432,2208][648,2352]",
+                        "selected": true,
+                        "clickable": true,
+                        "order": 3,
+                        "children": [
+                         {
+                          "id": "com.instagram.android:id/tab_icon",
+                          "cls": "android.widget.ImageView",
+                          "bounds": "[504,2244][576,2316]",
+                          "selected": true,
+                          "order": 1
+                         },
+                         {
+                          "id": "com.instagram.android:id/notification",
+                          "cls": "android.widget.TextView",
+                          "text": "4",
+                          "bounds": "[561,2286][591,2316]",
+                          "selected": true,
+                          "order": 2
+                         }
+                        ]
+                       },
+                       {
+                        "id": "com.instagram.android:id/search_tab",
+                        "cls": "android.widget.FrameLayout",
+                        "desc": "Search and explore",
+                        "bounds": "[648,2208][864,2352]",
+                        "clickable": true,
+                        "order": 4,
+                        "children": [
+                         {
+                          "id": "com.instagram.android:id/tab_icon",
+                          "cls": "android.widget.ImageView",
+                          "bounds": "[720,2244][792,2316]",
+                          "order": 2
+                         }
+                        ]
+                       },
+                       {
+                        "id": "com.instagram.android:id/profile_tab",
+                        "cls": "android.widget.FrameLayout",
+                        "desc": "Profile",
+                        "bounds": "[864,2208][1080,2352]",
+                        "clickable": true,
+                        "order": 5,
+                        "children": [
+                         {
+                          "id": "com.instagram.android:id/wrapper",
+                          "cls": "android.view.ViewGroup",
+                          "bounds": "[864,2208][1080,2352]",
+                          "order": 1,
+                          "children": [
+                           {
+                            "id": "com.instagram.android:id/container",
+                            "cls": "android.widget.FrameLayout",
+                            "bounds": "[927,2235][1017,2325]",
+                            "order": 1,
+                            "children": [
+                             {
+                              "id": "com.instagram.android:id/tab_avatar",
+                              "cls": "android.widget.ImageView",
+                              "bounds": "[927,2235][1017,2325]",
+                              "order": 2
+                             }
+                            ]
+                           }
+                          ]
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "id": "com.instagram.android:id/bottom_sheet_camera_container",
+                "cls": "android.widget.FrameLayout",
+                "bounds": "[0,110][1080,2352]",
+                "order": 2
+               }
+              ]
+             },
+             {
+              "id": "com.instagram.android:id/overlay_layout_container",
+              "cls": "android.widget.FrameLayout",
+              "bounds": "[0,0][1080,2352]",
+              "order": 5
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "android:id/statusBarBackground",
+    "cls": "android.view.View",
+    "bounds": "[0,0][1080,110]",
+    "visible": false,
+    "order": 4
+   },
+   {
+    "id": "android:id/navigationBarBackground",
+    "cls": "android.view.View",
+    "bounds": "[0,2352][1080,2400]",
+    "order": 3
+   }
+  ]
+ },
+ "extra": {
+  "windows": [
+   {
+    "id": 7109,
+    "type": 4,
+    "layer": 4,
+    "bounds": "[216,2208][432,2352]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 7105,
+    "type": 4,
+    "layer": 3,
+    "bounds": "[923,1595][1080,1704]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 7104,
+    "type": 4,
+    "layer": 2,
+    "bounds": "[919,1145][1080,1254]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 3125,
+    "type": 3,
+    "layer": 1,
+    "bounds": "[0,0][1080,110]",
+    "active": false,
+    "focused": false
+   },
+   {
+    "id": 7107,
+    "type": 1,
+    "layer": 0,
+    "bounds": "[0,0][1080,2400]",
+    "active": true,
+    "focused": true
+   }
+  ],
+  "navInsets": {
+   "l": 0,
+   "t": 0,
+   "r": 0,
+   "b": 48
+  }
+ }
+}

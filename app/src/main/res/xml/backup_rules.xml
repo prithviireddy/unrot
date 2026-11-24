@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 11 and older full backup. The bar's saved pictures, Inspector dumps and the service's run record (service_state) stay on
+     this phone: a restored run record would show a false kill card. -->
+<full-backup-content>
+    <exclude domain="file" path="bar-cache/" />
+    <exclude domain="file" path="dumps/" />
+    <exclude domain="sharedpref" path="service_state.xml" />
+</full-backup-content>
